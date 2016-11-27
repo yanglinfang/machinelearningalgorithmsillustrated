@@ -12,8 +12,8 @@ else {
 
 function drawLossChart(elem){
 
-    //d3.json(url+"/machinelearningalgorithmsillustrated/data/" + elem + "-data.json", function(data){
-     d3.json(url+"/data/" + elem + "-data.json", function(data){
+    //d3.json(url+"/machinelearningalgorithmsillustrated/data/" + elem + "-data.txt", function(data){
+     d3.json(url+"/data/" + elem + "-data.txt", function(data){
             data = data.map(function(d,i) {
                 return [i, d];
             });

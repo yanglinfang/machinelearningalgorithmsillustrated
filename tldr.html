@@ -15,23 +15,34 @@
 <div>
 
 <h2>MATH</h2>
-		
-		<h4>Sum of Affine Transformations</h4>
+<hr>		
+<h3>References</h3>
+
+<ul>
+<li>
+<a href="http://ufldl.stanford.edu/wiki/index.php/Neural_Networks">http://ufldl.stanford.edu/wiki/index.php/Neural_Networks</a>
+</li>
+</ul>
+<hr>	
+<h3>Functions</h3>
+<h4>Forward Pass</h4>
+<hr>
+		<h5>Sum of Affine Transformations</h5>
 		<p>
 			$$s_j = x_{j1} = \sum_{k=1}^{k}w_{ik}x_{ik}$$ <br>
 			<em>where \(k\) is the number of nodes in layer \(i\)
 			</em>
 		</p>
-		<h4>Activation Function<br>
+		<h5>Activation Function<br>
 			<span class="subhead">Also known as "non-linearity", or "transformation function"</span>
-		</h4>
+		</h5>
 		<p>
 			$$\hat{y}  = \sigma(s_i) \ where  \ \sigma(z) = \frac{1}{1+e^{-z}}$$
 		</p>
 
-		<h4>Loss Function<br>
+		<h5>Loss Function<br>
 			<span class="subhead">Sometimes referred to as a "cost function" or "objective function"</span>
-		</h4>
+		</h5>
 		<p>There are <a href="https://en.wikipedia.org/wiki/Loss_functions_for_classification">different loss functions</a> to choose from. In neural networks, it is common to use Cross Entropy Loss (<em>where $p$ is the ground truth, and $q$ is the prediction</em>) (also referred to as Log-Likelihood, which is the multiclass version of Cross Entropy):  </p>
 
 		<p>
@@ -41,8 +52,9 @@
 
 			
 		</p>
-
-		<h4>Compute Gradients</h4>
+<h4>Back Propagation</h4>
+<hr>
+		<h5>Compute Gradients</h5>
 		<p>To perform gradient descent, we compute the derivatives of the log likelihood with respect to the output unit’s weights (note that in the case of a single output unit (a Bernoulli distirbution) as in our example, the log likelihood is the cross entropy function). Using the chain rule (for a single examples), we get:</p>	
 
 		$$ \begin{align}

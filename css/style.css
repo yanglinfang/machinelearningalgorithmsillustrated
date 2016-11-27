@@ -30,7 +30,7 @@ a:hover, a:focus {
 p{
 	line-height: 24px;
 }
-h4{
+h4,h5{
 	margin-top: 30px;
 }
 .mtop15{margin-top:17px;}
@@ -129,7 +129,7 @@ hr{border-top: 1px solid #ddd;}
 	background-color: #eee;
 }
 .subhead{
-	font-size: 80%;
+	font-size: 95%;
     font-style: oblique;
 
 }
@@ -162,8 +162,8 @@ hr{border-top: 1px solid #ddd;}
     stroke: #666;
 } 
 .data-point-1{
-	fill: red;
-    stroke: red;
+	fill: #444;
+    stroke: #444;
 } 
 
 .play-bar{
@@ -265,7 +265,7 @@ svg {
 path.line {
 	fill: none;
 	stroke: #f05;
-	stroke-width: 2px;
+	stroke-width: 1px;
 }
 
 path.area {

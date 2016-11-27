@@ -256,3 +256,50 @@ input:checked + label {
   padding-bottom: 56.25%;
 }
 
+/*loss chart*/
+svg {
+	font: 10px sans-serif;
+	background-color: white;
+}
+
+path.line {
+	fill: none;
+	stroke: #f05;
+	stroke-width: 2px;
+}
+
+path.area {
+	fill: #e7e7e7;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font: 10px sans-serif;
+}
+
+
+
+.x.axis line {
+	stroke: #fff;
+}
+
+.x.axis .minor {
+	stroke-opacity: 1.0;
+}
+
+.x.axis path {
+	fill: none;
+	stroke: #000;
+}
+
+.y.axis line,
+.y.axis path {
+	fill: none;
+	stroke: #000;
+}

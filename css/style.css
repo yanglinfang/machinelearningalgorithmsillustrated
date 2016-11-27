@@ -33,6 +33,7 @@ p{
 h4,h5{
 	margin-top: 30px;
 }
+h5{text-transform: uppercase;}
 .mtop15{margin-top:17px;}
 .mbot20{margin-bottom: 20px;}
 .larger{    
@@ -131,6 +132,7 @@ hr{border-top: 1px solid #ddd;}
 .subhead{
 	font-size: 95%;
     font-style: oblique;
+    text-transform: none;
 
 }
 .section-label{

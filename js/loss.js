@@ -4,7 +4,7 @@ if (window.location.host.indexOf('127.0.0.1') != -1
     url = window.location.href.toString().split('/', 3).join('/');
 }
 else if (window.location.host.indexOf('.net') != -1) {
-    url = 'http://machinelearningalgorithmsillustratedapi.azurewebsites.net';
+    url = 'http://machinelearningalgorithmsillustrated.azurewebsites.net';
 }
 else {
     url = 'http://www.candpgeneration.com/209HTML'

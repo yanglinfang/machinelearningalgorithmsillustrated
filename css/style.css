@@ -21,6 +21,7 @@ body,html{
 	height:100%;
 	color: #010b35;
 }
+#content{padding-bottom: 120px;}
 a{color:#f05;}
 a:hover, a:focus {
     color: #f05;
@@ -46,7 +47,6 @@ main{
 }
 .main{
 	padding:20px 0;
-	padding-bottom:80px;
 }
 .nav a{
 	display:block;
@@ -189,10 +189,10 @@ hr{border-top: 1px solid #ddd;}
 section.tab {
   display: none;
   padding: 0 0 0 15px;
-  border: 1px solid #ddd;
-  height: 400px;
+  /*border: 1px solid #ddd;*/
+  /*height: 400px;
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: hidden;*/
 }
 
 input.tab-state {
@@ -230,5 +230,29 @@ input:checked + label {
 
 .scatter-plot{
 	position:relative;
+}
+
+/* iframes with youtube videos */
+.scalable {
+  overflow: hidden;
+}
+
+.scalable iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border: 0;
+}
+
+.scalable .scalable-content {
+  height: 0;
+  position: relative;
+}
+
+.scalable-16-9 .scalable-content {
+  /* Percentage from 9 divided by 16 for ratio of 16:9. */
+  padding-bottom: 56.25%;
 }
 

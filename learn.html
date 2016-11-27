@@ -18,11 +18,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-12">
-				<h3></h3>
-			</div>
-			<div class="col-sm-6">
-				
+			<div class="col-md-6">
 				<div class="row">
 					<div class="col-sm-6">
 						<p><span class="larger">To demonstrate the mechanics of a simple feedforward neural network</span>, we'll use a toy example consisiting of a 2 dimentional feature vector <span class="mathy"> &lt;weight, height&gt; </span> to predict a binary outcome of healthy or unhealthy. You may notice, that a Neural Network without any hidden layers is just Logistic Regression.
@@ -41,27 +37,19 @@
 						We repeat these two phases until the algorithm converges, or until our error is sufficiently small.
 						</p>
 					</div>
+
 				</div>
-					
-				
-			
-				<!-- <p><span class="larger">Functions</span> </p> -->
-				
-				
+
 			</div>
-			<div class="col-sm-6">
+			
+
+				
+			<div class="col-md-6">
 				<div class="scalable scalable-16-9">
 		          <div class="scalable-content">
 		            <iframe src="https://www.youtube.com/embed/bxe2T-V8XRs"></iframe>
 		          </div>
 		        </div>
-				<!-- <iframe
-                   width="400"
-                   height="300"
-                   src="https://www.youtube.com/embed/bxe2T-V8XRs"
-                   frameborder="0"
-                   allowfullscreen
-              ></iframe> -->
 			</div>
 		</div>
 
@@ -78,36 +66,48 @@
 
 
 		<div class="row">
-			<div class="col-sm-3" id="ScatterLR">
-				<div class="tooltip hidden">
-			        <span class="x1"></span><br>
-			        <span class="x2"></span><br>
-			        <span class="y"></span>
-				</div>
-				<div class="section-label">Data</div>
-				<!-- <img src="img/data-LR-chart.png"\> -->
-			</div>
-			<div class="col-sm-3">
-				<div class="section-label">Model - Logistic Regression</div>
-				<div class="sections-summary">
-					Input  layer  :  i<br>
-					Output  layer  :  j
-				</div>
-				<div id="LR" class="graph-container">
-					<div class="tooltip node_tip hidden">
-						<div class="layer"></div>
-						<div class="nodeVal"></div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-sm-6" id="ScatterLR">
+						<div class="tooltip hidden">
+					        <span class="x1"></span><br>
+					        <span class="x2"></span><br>
+					        <span class="y"></span>
+						</div>
+						<div class="section-label">Data</div>
+						<!-- <img src="img/data-LR-chart.png"\> -->
 					</div>
+
+					<div class="col-sm-6">
+						<div class="section-label">Model - Logistic Regression</div>
+						<div class="sections-summary">
+							Input  layer  :  i<br>
+							Output  layer  :  j
+						</div>
+						<div id="LR" class="graph-container">
+							<div class="tooltip node_tip hidden">
+								<div class="layer"></div>
+								<div class="nodeVal"></div>
+							</div>
+						</div>
+					</div>
+				</div>		
+			</div>
+
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="section-label">Loss</div>
+						<img src="img/loss-placeholder.png"/>
+						<div class="section-label">Gradient descent</div>
+						<img src="img/gd-placeholder.png"/>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="section-label">Math</div>
+					</div>
+
 				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="section-label">Loss</div>
-				<img src="img/loss-placeholder.png"/>
-				<div class="section-label">Gradient descent</div>
-				<img src="img/gd-placeholder.png"/>
-			</div>
-			<div class="col-sm-3">
-				<div class="section-label">Math</div>
 			</div>
 		</div>
 
@@ -125,40 +125,47 @@
 			<div class="col-sm-12 mbot20">
 				<p>That was all great untill a couple of tall skinny guys came in caughing up hairballs, and our data was <span class="larger">no longer linearly separable</span>. Hidden layers to the rescue!</p>
 			</div>
-			<div class="col-sm-3" class="scatter-plot" id="ScatterNN">
-				<div class="tooltip hidden">
-			        <span class="x1"></span><br>
-			        <span class="x2"></span><br>
-			        <span class="y"></span>
-				</div>
-				<div class="section-label">Data</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="section-label">Model - Neural Network</div>
-				<div class="sections-summary">
-					Input  layer  :  i<br>
-					Hidden layer : j<br>
-					Output  layer  :  k
-				</div>
-				<div id="NN" class="graph-container">
-					<div class="tooltip node_tip hidden">
-						<div class="layer"></div>
-						<div class="nodeVal"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-sm-6" class="scatter-plot" id="ScatterNN">
+						<div class="tooltip hidden">
+					        <span class="x1"></span><br>
+					        <span class="x2"></span><br>
+					        <span class="y"></span>
+						</div>
+						<div class="section-label">Data</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="section-label">Model - Neural Network</div>
+						<div class="sections-summary">
+							Input  layer  :  i<br>
+							Hidden layer : j<br>
+							Output  layer  :  k
+						</div>
+						<div id="NN" class="graph-container">
+							<div class="tooltip node_tip hidden">
+								<div class="layer"></div>
+								<div class="nodeVal"></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-3">
-				<div class="section-label">Loss</div>
-				<img src="img/loss-placeholder.png"/>
-				<div class="section-label">Gradient descent</div>
-				<img src="img/gd-placeholder.png"/>
-			</div>
-			<div class="col-sm-3">
-				<div class="section-label">Math</div>
+			<div class="col-md-6" >
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="section-label">Loss</div>
+						<img src="img/loss-placeholder.png"/>
+						<div class="section-label">Gradient descent</div>
+						<img src="img/gd-placeholder.png"/>
+					</div>	
+					<div class="col-sm-6">
+						<div class="section-label">Math</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-
-
 </div>

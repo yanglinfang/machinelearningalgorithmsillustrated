@@ -59,7 +59,7 @@
 			<div class="col-sm-12 play-bar">
 				<span class="back"><i class="material-icons">fast_rewind</i></span>
 				<span class="back"><i class="material-icons">skip_previous</i></span>
-				<span class="play"><i class="material-icons">play_arrow</i></span>
+				<span class="play" id="playLRLoss"><i class="material-icons">play_arrow</i></span>
 				<span class="back"><i class="material-icons">skip_next</i></span>
 				<span class="forward"><i class="material-icons">fast_forward</i></span>
 			</div>
@@ -99,9 +99,9 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-sm-6">
-						<div class="section-label" id="LRLoss">Loss</div>
+						<div id="LRLoss"><span class="section-label">Training Loss</span></div>
 						<!--<img src="img/loss-placeholder.png"/>-->
-						<div class="section-label">Gradient descent</div>
+						<div id="LRGD"><span class="section-label">Gradient descent</span></div>
 						<img src="img/gd-placeholder.png"/>
 					</div>
 
@@ -117,7 +117,7 @@
 			<div class="col-sm-12 play-bar">
 				<span class="back"><i class="material-icons">fast_rewind</i></span>
 				<span class="back"><i class="material-icons">skip_previous</i></span>
-				<span class="play"><i class="material-icons">play_arrow</i></span>
+				<span class="play" id="playNNLoss"><i class="material-icons">play_arrow</i></span>
 				<span class="back"><i class="material-icons">skip_next</i></span>
 				<span class="forward"><i class="material-icons">fast_forward</i></span>
 			</div>
@@ -158,9 +158,9 @@
 			<div class="col-md-6" >
 				<div class="row">
 					<div class="col-sm-6">
-						<div class="section-label" id="NNLoss">Loss</div>
+						<div id="NNLoss"><div class="section-label">Training Loss</div></div>
 						<!--<img src="img/loss-placeholder.png"/>-->
-						<div class="section-label">Gradient descent</div>
+						<div id="NNGD"><div class="section-label">Gradient descent</div></div>
 						<img src="img/gd-placeholder.png"/>
 					</div>	
 					<div class="col-sm-6">

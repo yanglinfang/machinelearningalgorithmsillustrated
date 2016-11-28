@@ -27,7 +27,7 @@ function drawLossChart(elem){
                 .range([0, w]);
 
             var y = d3.scaleLinear()
-                .domain([0, 1])
+                .domain([0, 1.5])
                 .range([h, 0]);
 
             //var xAxis =    d3.select(".axis")
@@ -41,6 +41,12 @@ function drawLossChart(elem){
                 .x(function(d) { return x(d[0]); })
                 .y(function(d) { return y(d[1]); });
 
+
+                d3.select('body')
+                .select("#"+elem)
+                .select('svg')
+                .remove()
+
             var svg = d3.select('body')
                 .select("#"+elem)
                 .append('svg')
@@ -48,13 +54,29 @@ function drawLossChart(elem){
                 .attr('h', h);
 
             // add element and transition in
+
+
+
             var path = svg.append('path')
                 .attr('class', 'line')
                 .attr("transform", "translate("+p+",0)")
-                .attr('d', line(data[0]))
-                .transition()
+                .attr('d', line(parseFloat(data[0])))
+                
+
+            $(document.body).on('click', "#play"+elem, function(e){
+                var that = $(this).find('i')
+                that.text('pause')
+                path
+                .transition().on(
+                    'end', function(){
+                        that.text('play_arrow')
+                    }
+                )
                 .duration(5000)
-                .attrTween('d', pathTween);
+                .attrTween('d', pathTween)
+                
+                ;
+              })
 
             svg.append("g")
                 .attr("class", "x axis")

@@ -1,10 +1,8 @@
 
 if (window.location.host.indexOf('127.0.0.1') != -1
-    || window.location.host.indexOf('localhost') != -1) {
+   || window.location.host.indexOf('localhost') != -1
+   || window.location.host.indexOf('.net') != -1) {
     url = window.location.href.toString().split('/', 3).join('/');
-}
-else if (window.location.host.indexOf('.net') != -1) {
-    url = 'http://machinelearningalgorithmsillustrated.azurewebsites.net';
 }
 else {
     url = 'http://www.candpgeneration.com/209HTML'
@@ -12,7 +10,6 @@ else {
 
 function drawLossChart(elem){
 
-    //d3.json(url+"/machinelearningalgorithmsillustrated/data/" + elem + "-data.txt", function(data){
      d3.json(url+"/data/" + elem + "-data.txt", function(data){
             data = data.map(function(d,i) {
                 return [i, d];

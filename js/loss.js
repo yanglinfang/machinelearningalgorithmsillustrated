@@ -58,9 +58,8 @@ function drawLossChart(elem){
                 .attr('class', 'line')
                 .attr("transform", "translate("+p+",0)")
                 .attr('d', line(parseFloat(data[0])))
-                
-
-            $(document.body).on('click', "#play"+elem, function(e){
+            
+            $(document.body).on('click', "#play"+elem.replace('Loss',''), function(e){
                 var that = $(this).find('i')
                 that.text('pause')
                 path

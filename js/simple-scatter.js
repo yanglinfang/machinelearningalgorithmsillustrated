@@ -35,7 +35,10 @@ function normalizeData(data){
 
 
 function scatter(id,data){
-    	
+
+	//clean up existing plot
+    d3.select('#'+id + ' svg').remove()
+
 	var margin = {top: 23, right: 30, bottom: 40, left: 40}
 		,width  = 235
 	    ,height = 240

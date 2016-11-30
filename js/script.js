@@ -35,6 +35,24 @@ $(function(){
     {x1:125,x2:5.8,y:1}
   ]
 
+  function setupClickPlay(elem){
+    $(document.body).on('click', "#play"+elem, function(e){
+                 
+                 //first step is normalize data
+                  switch(elem){
+                    case "LR":
+                      normalizeData(scatterLR);
+                      scatter('ScatterLR',scatterLR);
+                      break;
+                    case "NN":
+                      normalizeData(scatterNN);
+                      scatter('ScatterNN',scatterNN);
+                      break;
+                  }
+
+                })
+  }
+
   function callPage(pageRefInput){
     var pageName = pageRefInput.split("#");
     pageName = pageName[1]+".html";
@@ -49,8 +67,10 @@ $(function(){
           scatter('ScatterNN',scatterNN);
           draw('LR',[2,1]);
           draw('NN',[2,3,1]);
-          drawLossChart('LRLoss')
+          drawLossChart('LRLoss');
           drawLossChart('NNLoss');
+          setupClickPlay('LR');
+          setupClickPlay('NN');
           setTimeout(function(){
               MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             }, 1);

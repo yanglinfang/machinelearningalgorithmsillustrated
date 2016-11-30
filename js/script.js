@@ -75,10 +75,14 @@ $(function () {
         $('#content').html(response);
         scatter('ScatterLR', scatterLR);
         scatter('ScatterNN', scatterNN);
-        draw('LR', [2, 2]);
-        draw('NN', [2, 3, 2]);
-        drawLossChart('LRLoss');
-        drawLossChart('NNLoss');
+        draw('LR', [2, 1]);
+        draw('NN', [2, 3, 1]);
+        drawLossChart('LR');
+        drawLossChart('NN');
+        
+        //drawWeightMatrix('LR');
+        //drawWeightMatrix('NN');
+        
         setupClickPlay('LR');
         setupClickPlay('NN');
         setTimeout(function () {

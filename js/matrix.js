@@ -71,7 +71,9 @@ switch (elem) {
         var path = svg1.append('path')
             .attr('class', 'line')
             .attr("transform", "translate(" + 30 + ",0)")
-            .attr('d', colorScalew1(parseFloat(data[0])))
+            .attr('d', function(d,i){
+               
+            })
         
 
         $(document.body).on('click', "#play" + elem, function (e) {
@@ -85,16 +87,15 @@ switch (elem) {
                 )
                 .duration(5000)
                 .attrTween('d', pathTween)
-
                 ;
         })
 
         function pathTween() {
             var interpolate = d3.scaleQuantile()
-                .domain([0, 1])
+                .domain([d3.min(w1), d3.max(w1)])
                 .range(d3.range(1, data.length + 1));
             return function (t) {
-                return colorScalew1(data.slice(0, interpolate(t)));
+                return (data.slice(0, interpolate(t))).map(function(v,i) { return Math.abs(parseFloat(v[1])); });
             };
         }
 

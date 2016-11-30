@@ -21,52 +21,56 @@
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-sm-6">
-						<p><span class="larger">To demonstrate the mechanics of a simple feedforward neural network</span>, we'll use a toy example consisiting of a 2 dimentional feature vector <span class="mathy"> &lt;weight, height&gt; </span> to predict a binary outcome of healthy or unhealthy. You may notice, that a Neural Network without any hidden layers is just Logistic Regression.
+						<p><span class="larger">To demonstrate the mechanics of a simple feedforward neural network</span>, we'll use a toy example
+							consisiting of a 2 dimentional feature vector <span class="mathy"> &lt;weight, height&gt; </span> to predict a binary
+							outcome of healthy or unhealthy. You may notice, that a Neural Network without any hidden layers is just Logistic
+							Regression. The point of the exercise is to train a model that produces outcomes as close to the true values as possible.
+							Or in other words, to "minimize the loss".
 
-						The point of the exercise is to train a model that produces outcomes as close to the true values as possible. Or in other words, to "minimize the loss". 
-						
-						<a href="https://github.com/kyleiwaniec/ML_algorithms_illustrated/blob/master/iPython%20Notebook/minimal_net-2dim.ipynb" target="_blank">IPython notebook link</a> for example used on this page. 
+							<a href="https://github.com/kyleiwaniec/ML_algorithms_illustrated/blob/master/iPython%20Notebook/minimal_net-2dim.ipynb"
+								target="_blank">IPython notebook link</a> for example used on this page.
 
-						
+
 						</p>
 					</div>
 					<div class="col-sm-6">
 						<p>
-						This is done in two main phases, namely, a <strong>feedforward</strong> phase where all the data passes forward through the network so that we can calculate the loss. In other words, on average, how off are we from the ground truth.
-
-						In the second phase, we <strong>backpropagate</strong> through the network using gradient descent so that we can update our model parameters (weights).
-
-						We repeat these two phases until the algorithm converges, or until the loss is sufficiently small.
+							This is done in two main phases, namely, a <strong>feedforward</strong> phase where all the data passes forward through
+							the network so that we can calculate the loss. In other words, on average, how off are we from the ground truth. In
+							the second phase, we <strong>backpropagate</strong> through the network using gradient descent so that we can update
+							our model parameters (weights). We repeat these two phases until the algorithm converges, or until the loss is sufficiently
+							small.
 						</p>
 
-						<p>If you are not at all familiar with Neural Networks, <a href="https://github.com/stephencwelch/Neural-Networks-Demystified" target="_blank">@stephencwelch</a> explains them really well in a short video series <span class="hidden-sm hidden-xs">on the right:</span> <span class="visible-sm-inline visible-xs-inline">below:</span></p>
+						<p>If you are not at all familiar with Neural Networks, <a href="https://github.com/stephencwelch/Neural-Networks-Demystified"
+								target="_blank">@stephencwelch</a> explains them really well in a short video series <span class="hidden-sm hidden-xs">on the right:</span>							<span class="visible-sm-inline visible-xs-inline">below:</span></p>
 					</div>
 
 				</div>
 
 			</div>
-			
 
-				
+
+
 			<div class="col-md-6">
 				<div class="scalable scalable-16-9">
-		          <div class="scalable-content">
-		            <iframe src="https://www.youtube.com/embed/bxe2T-V8XRs"></iframe>
-		          </div>
-		        </div>
+					<div class="scalable-content">
+						<iframe src="https://www.youtube.com/embed/bxe2T-V8XRs"></iframe>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-12 play-bar">
-				<span class="back"><i class="material-icons">fast_rewind</i></span>
+				<span class="back" id="backLR"><i class="material-icons">fast_rewind</i></span>
 				<span class="back"><i class="material-icons">skip_previous</i></span>
 				<span class="play" id="playLR"><i class="material-icons">play_arrow</i></span>
 				<span class="back"><i class="material-icons">skip_next</i></span>
 				<span class="forward"><i class="material-icons">fast_forward</i></span>
 			</div>
 
-		</div>	
+		</div>
 
 
 		<div class="row">
@@ -74,9 +78,9 @@
 				<div class="row">
 					<div class="col-sm-6" id="ScatterLR">
 						<div class="tooltip hidden">
-					        <span class="x1"></span><br>
-					        <span class="x2"></span><br>
-					        <span class="y"></span>
+							<span class="x1"></span><br>
+							<span class="x2"></span><br>
+							<span class="y"></span>
 						</div>
 						<div class="section-label">Data</div>
 						<!-- <img src="img/data-LR-chart.png"\> -->
@@ -85,8 +89,7 @@
 					<div class="col-sm-6">
 						<div class="section-label">Model - Logistic Regression</div>
 						<div class="sections-summary">
-							Input  layer  :  i<br>
-							Output  layer  :  j
+							Input layer : i<br> Output layer : j
 						</div>
 						<div id="LR" class="graph-container">
 							<div class="tooltip node_tip hidden">
@@ -95,7 +98,7 @@
 							</div>
 						</div>
 					</div>
-				</div>		
+				</div>
 			</div>
 
 			<div class="col-md-6">
@@ -104,14 +107,14 @@
 						<div id="LRLoss"><span class="section-label">Training Loss</span></div>
 						<!--<img src="img/loss-placeholder.png"/>-->
 						<div id="LRGD"><span class="section-label">Gradient descent</span></div>
-						<img src="img/gd-placeholder.png"/>
+						<img src="img/gd-placeholder.png" />
 					</div>
 
 					<div class="col-sm-6">
 						<div class="section-label">Model parameters (weights)</div>
-						<img src="img/LR-weights-placeholder.png"/>
+						<img src="img/LR-weights-placeholder.png" />
 						<div class="section-label">Decision boundary (hyperplane)</div>
-						<img src="img/LinearlySeparableCase-LR_contourf.png" width="100%" height="100%"/>
+						<img src="img/LinearlySeparableCase-LR_contourf.png" width="100%" height="100%" />
 					</div>
 
 				</div>
@@ -120,17 +123,18 @@
 
 		<div class="row">
 			<div class="col-sm-12 play-bar">
-				<span class="back"><i class="material-icons">fast_rewind</i></span>
+				<span class="back" id="backNN"><i class="material-icons">fast_rewind</i></span>
 				<span class="back"><i class="material-icons">skip_previous</i></span>
 				<span class="play" id="playNN"><i class="material-icons">play_arrow</i></span>
 				<span class="back"><i class="material-icons">skip_next</i></span>
 				<span class="forward"><i class="material-icons">fast_forward</i></span>
 			</div>
-		</div>	
+		</div>
 
 		<div class="row">
 			<div class="col-sm-12 mbot20">
-				<p>That was all great untill a couple of tall skinny guys came in caughing up hairballs, and our data was <span class="larger">no longer linearly separable</span>. Hidden layers to the rescue!</p>
+				<p>That was all great untill a couple of tall skinny guys came in caughing up hairballs, and our data was <span class="larger">no longer linearly separable</span>.
+					Hidden layers to the rescue!</p>
 			</div>
 		</div>
 		<div class="row">
@@ -138,18 +142,16 @@
 				<div class="row">
 					<div class="col-sm-6" class="scatter-plot" id="ScatterNN">
 						<div class="tooltip hidden">
-					        <span class="x1"></span><br>
-					        <span class="x2"></span><br>
-					        <span class="y"></span>
+							<span class="x1"></span><br>
+							<span class="x2"></span><br>
+							<span class="y"></span>
 						</div>
 						<div class="section-label">Data</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="section-label">Model - Neural Network</div>
 						<div class="sections-summary">
-							Input  layer  :  i<br>
-							Hidden layer : j<br>
-							Output  layer  :  k
+							Input layer : i<br> Hidden layer : j<br> Output layer : k
 						</div>
 						<div id="NN" class="graph-container">
 							<div class="tooltip node_tip hidden">
@@ -160,19 +162,23 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6" >
+			<div class="col-md-6">
 				<div class="row">
 					<div class="col-sm-6">
-						<div id="NNLoss"><div class="section-label">Training Loss</div></div>
+						<div id="NNLoss">
+							<div class="section-label">Training Loss</div>
+						</div>
 						<!--<img src="img/loss-placeholder.png"/>-->
-						<div id="NNGD"><div class="section-label">Gradient descent</div></div>
-						<img src="img/gd-placeholder.png"/>
-					</div>	
+						<div id="NNGD">
+							<div class="section-label">Gradient descent</div>
+						</div>
+						<img src="img/gd-placeholder.png" />
+					</div>
 					<div class="col-sm-6">
 						<div class="section-label">Model parameters (weights)</div>
-						<img src="img/NN-weights-placeholder.png"/>
+						<img src="img/NN-weights-placeholder.png" />
 						<div class="section-label">Decision boundary (hyperplane)</div>
-						<img src="img/LinearlyNonSeparableCase-NN_contourf.png" width="100%" height="100%"/>
+						<img src="img/LinearlyNonSeparableCase-NN_contourf.png" width="100%" height="100%" />
 					</div>
 				</div>
 			</div>

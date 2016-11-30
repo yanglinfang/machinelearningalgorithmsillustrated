@@ -1,21 +1,52 @@
 
 
+
+function getParam(paramName, data){
+	switch(paramName){
+		case 'x1_min':
+		    return d3.min(data, function(d) { return d["x1"]; });
+		case 'x1_max':
+			return d3.max(data, function(d) { return d["x1"]; });
+		case 'x1_span':
+			return d3.max(data, function(d) { return d["x1"]; }) - d3.min(data, function(d) { return d["x1"]; });
+		case 'x2_min':
+			return d3.min(data, function(d) { return d["x2"]; });
+		case 'x2_max':
+			return d3.max(data, function(d) { return d["x2"]; });			
+		case 'x2_span':
+			return d3.max(data, function(d) { return d["x2"]; }) - d3.min(data, function(d) { return d["x2"]; });
+	}
+}
+
+
+function normalizeData(data){  
+
+    var x1_min = getParam('x1_min', data)
+	var x1_span = getParam('x1_span', data)
+	var x2_min = getParam('x2_min', data)
+	var x2_span =getParam('x2_span', data)
+
+    data.forEach(function(element) {
+        element.x1 = (element.x1-x1_min)/x1_span;
+        element.x2 = (element.x2-x2_min)/x2_span;
+    }, this);
+    
+}
+
+
 function scatter(id,data){
-
-
-
+    	
 	var margin = {top: 23, right: 30, bottom: 40, left: 40}
 		,width  = 235
 	    ,height = 240
-
 	
 
 	var x = d3.scaleLinear()
-	              .domain([d3.min(data, function(d) { return d["x2"]; })-20, d3.max(data, function(d) { return d["x2"]; })+20])
+	              .domain([getParam('x1_min', data)-getParam('x1_span', data)/7.0, getParam('x1_max', data)+getParam('x1_span', data)/7.0])
 	              .range([ 0, width]);
 	    
 	var y = d3.scaleLinear()
-		      .domain([d3.min(data, function(d) { return d["x1"]; })-.1, d3.max(data, function(d) { return d["x1"]; })+.1])
+		      .domain([getParam('x2_min', data)-getParam('x2_span', data)/10.0, getParam('x2_max', data)+getParam('x2_span', data)/10.0])
 		      .range([ height, 0 ]);
 
 
@@ -85,8 +116,8 @@ function scatter(id,data){
 	      .data(data)
 	      .enter().append("svg:circle")
 	      	  .attr("class",function (d){return "data-point-"+d["y"]})
-	          .attr("cx", function (d,i) { return x(d["x2"]); } )
-	          .attr("cy", function (d) { return y(d["x1"]); } )
+	          .attr("cx", function (d,i) { return x(d["x1"]); } )
+	          .attr("cy", function (d) { return y(d["x2"]); } )
 	          .attr("r", 6)
 
 	      .on("mouseenter",function(d,i){
@@ -99,11 +130,11 @@ function scatter(id,data){
               .style("left", xPosition + "px")
               .style("top", yPosition + "px")
               
-            tooltip.selectAll(".x1")
-              .text("$x_{i1} = "+d['x1']+"\\ ft$")
-              
             tooltip.selectAll(".x2")
-              .text("$x_{i2} = "+d['x2']+"\\ lbs$")
+              .text("$x_{i2} = "+d['x2']+"\\ ft$")
+              
+            tooltip.selectAll(".x1")
+              .text("$x_{i1} = "+d['x1']+"\\ lbs$")
 
             tooltip.selectAll(".y")
               .text("$y = "+d['y']+"$")

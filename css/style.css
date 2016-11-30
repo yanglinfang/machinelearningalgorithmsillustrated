@@ -185,7 +185,13 @@ hr{border-top: 1px solid #ddd;}
 	font-size: 40px;
 	line-height: 50px;
 	color:#fff;
+	opacity:.7;
     vertical-align: middle;
+    transition:all .5s;
+}
+.play-bar .material-icons:hover{
+/*	color: #fff;
+*/	opacity:1;
 }
 
 section.tab {

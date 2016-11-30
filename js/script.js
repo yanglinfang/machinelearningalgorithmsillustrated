@@ -49,8 +49,11 @@ $(function(){
           scatter('ScatterNN',scatterNN);
           draw('LR',[2,1]);
           draw('NN',[2,3,1]);
-          drawLossChart('LRLoss')
+          drawLossChart('LRLoss');
           drawLossChart('NNLoss');
+
+          drawMatrix('LRweights');
+
           setTimeout(function(){
               MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             }, 1);

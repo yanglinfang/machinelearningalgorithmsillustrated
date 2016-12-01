@@ -86,6 +86,9 @@ $(function () {
         setupClickPlay('LR');
         setupClickPlay('NN');
         
+        //drawDecisionBoundary('LR');
+        //drawDecisionBoundary('NN');
+
         setTimeout(function () {
           MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }, 1);

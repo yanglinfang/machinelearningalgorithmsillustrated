@@ -315,4 +315,17 @@ path.area {
 .box{
 	stroke:#666;
 	stroke-width: .5;
+	width:20px;
+	height:20px;
 }
+.matrix-label{
+	font-family: MJX_Math;
+	font-size: 13px;
+    line-height: 1.2em;
+
+}
+
+
+
+
+

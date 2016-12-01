@@ -80,11 +80,12 @@ $(function () {
         draw('NN', [2, 3, 1]);
         drawLossChart('LR');
         drawLossChart('NN');
-        
+
         drawMatrix('LRweights');
         
         setupClickPlay('LR');
         setupClickPlay('NN');
+        
         setTimeout(function () {
           MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }, 1);

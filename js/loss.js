@@ -10,17 +10,9 @@ else {
 
 function drawLossChart(elem) {
 
-    var filePath;
-    switch (elem) {
-        case "LR":
-            filePath = url + "/data/linearly-separable-case/LRlosses.txt";
-            break;
-        case "NN":
-            filePath = url + "/data/non-linearly-separable-case/NNlosses.txt";
-            break;
-    }
+    
 
-    d3.json(filePath, function (data) {
+    d3.json(url+"/data/" + elem + "losses.txt", function (data) {
         data = data.map(function (d, i) {
             return [i, d];
         });

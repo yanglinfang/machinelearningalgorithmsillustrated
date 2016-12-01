@@ -1,7 +1,6 @@
 
 
-var width  = 425,
-    height = 300
+
 
 if (window.location.host.indexOf('127.0.0.1') != -1
    || window.location.host.indexOf('localhost') != -1
@@ -13,7 +12,9 @@ else {
 }
 
 function draw(elem,layers){
-
+	var width  = 425,
+    	height = 300;
+    	
 	var data = new Graph(layers)
 	drawGraph(data);
 

@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
 
   // $.ajax();  <<< CORE METHOD
   // $('').load();
@@ -8,7 +8,7 @@ $(function(){
   // $.getJSON();
   callPage('#home')
 
- $(document.body).on('click', '.page' , function(e){
+  $(document.body).on('click', '.page', function (e) {
     e.preventDefault();
     var pageRef = $(this).find('a').attr('href');
     callPage(pageRef)
@@ -16,28 +16,56 @@ $(function(){
   });
 
   var scatterLR = [
-    {x1:5.5,x2:98,y:0},
-    {x1:5.8,x2:120,y:0},
-    {x1:6.2,x2:168,y:0},
-    {x1:5.5,x2:200,y:1},
-    {x1:5,x2:210,y:1},
-    {x1:5,x2:168,y:1}
+    { x1: 98, x2: 5.5, y: 0 },
+    { x1: 120, x2: 5.8, y: 0 },
+    { x1: 168, x2: 6.2, y: 0 },
+    { x1: 200, x2: 5.5, y: 1 },
+    { x1: 210, x2: 5, y: 1 },
+    { x1: 168, x2: 5, y: 1 }
   ]
   var scatterNN = [
-    {x1:5.5,x2:98,y:0},
-    {x1:5.2,x2:155,y:0},
-    {x1:5.7,x2:120,y:0},
-    {x1:6.2,x2:168,y:0},
-    {x1:5.5,x2:200,y:1},
-    {x1:5,x2:210,y:1},
-    {x1:5,x2:168,y:1},
-    {x1:6.0,x2:110,y:1},
-    {x1:5.8,x2:125,y:1}
+    { x1: 98, x2: 5.5, y: 0 },
+    { x1: 155, x2: 5.2, y: 0 },
+    { x1: 120, x2: 5.7, y: 0 },
+    { x1: 168, x2: 6.2, y: 0 },
+    { x1: 200, x2: 5.5, y: 1 },
+    { x1: 210, x2: 5, y: 1 },
+    { x1: 168, x2: 5, y: 1 },
+    { x1: 110, x2: 6.0, y: 1 },
+    { x1: 125, x2: 5.8, y: 1 }
   ]
 
-  function callPage(pageRefInput){
+  function setupClickPlay(elem) {
+    $(document.body).on('click', "#play" + elem, function (e) {
+      //user clicked play
+      //first step is normalize data
+      switch (elem) {
+        case "LR":
+          scatter('ScatterLR', normalizeData(scatterLR));
+          break;
+        case "NN":
+          scatter('ScatterNN', normalizeData(scatterNN));
+          break;
+      }
+    })
+
+    $(document.body).on('click', "#back" + elem, function (e) {
+      //user clicked back
+      //setback data
+      switch (elem) {
+        case "LR":
+          scatter('ScatterLR', scatterLR);
+          break;
+        case "NN":
+          scatter('ScatterNN', scatterNN);
+          break;
+      }
+    })
+  }
+
+  function callPage(pageRefInput) {
     var pageName = pageRefInput.split("#");
-    pageName = pageName[1]+".html";
+    pageName = pageName[1] + ".html";
 
     $.ajax({
         url: pageName,
@@ -65,8 +93,9 @@ $(function(){
           console.log("Request complete");
         }
     });    
+
   }
-  
+
 
 
 });

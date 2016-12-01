@@ -311,3 +311,8 @@ path.area {
 	fill: none;
 	stroke: #000;
 }
+
+.box{
+	stroke:#666;
+	stroke-width: .5;
+}

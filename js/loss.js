@@ -12,14 +12,14 @@ function drawLossChart(elem) {
 
     var filePath;
     switch (elem) {
-        case "LRLoss":
+        case "LR":
             filePath = url + "/data/linearly-separable-case/LRlosses.txt";
             break;
-        case "NNLoss":
+        case "NN":
             filePath = url + "/data/non-linearly-separable-case/NNlosses.txt";
             break;
     }
-    
+
     d3.json(filePath, function (data) {
         data = data.map(function (d, i) {
             return [i, d];
@@ -50,12 +50,12 @@ function drawLossChart(elem) {
 
 
         d3.select('body')
-            .select("#" + elem)
+            .select("#" + elem + "Loss")
             .select('svg')
             .remove()
 
         var svg = d3.select('body')
-            .select("#" + elem)
+            .select("#" + elem + "Loss")
             .append('svg')
             .attr('w', w)
             .attr('h', h);
@@ -69,7 +69,7 @@ function drawLossChart(elem) {
             .attr("transform", "translate(" + p + ",0)")
             .attr('d', line(parseFloat(data[0])))
 
-        $(document.body).on('click', "#play" + elem.replace('Loss', ''), function (e) {
+        $(document.body).on('click', "#play" + elem, function (e) {
             var that = $(this).find('i')
             that.text('pause')
             path

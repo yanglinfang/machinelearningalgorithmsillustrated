@@ -68,32 +68,34 @@ $(function () {
     pageName = pageName[1] + ".html";
 
     $.ajax({
-        url: pageName,
-        type: "GET",
-        dataType : 'text',
-        success: function( response ) {
-          $('#content').html(response);
-          scatter('ScatterLR',scatterLR);
-          scatter('ScatterNN',scatterNN);
-          draw('LR',[2,1]);
-          draw('NN',[2,3,1]);
-          drawLossChart('LRLoss');
-          drawLossChart('NNLoss');
 
-          drawMatrix('LRweights');
-
-          setTimeout(function(){
-              MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-            }, 1);
-        },
-        error: function( error ) {
-          console.log('Error loading page', error);
-        },
-        complete: function( xhr, status ) {
-          console.log("Request complete");
-        }
-    });    
-
+      url: pageName,
+      type: "GET",
+      dataType: 'text',
+      success: function (response) {
+        $('#content').html(response);
+        scatter('ScatterLR', scatterLR);
+        scatter('ScatterNN', scatterNN);
+        draw('LR', [2, 1]);
+        draw('NN', [2, 3, 1]);
+        drawLossChart('LR');
+        drawLossChart('NN');
+        
+        drawMatrix('LRweights');
+        
+        setupClickPlay('LR');
+        setupClickPlay('NN');
+        setTimeout(function () {
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }, 1);
+      },
+      error: function (error) {
+        console.log('Error loading page', error);
+      },
+      complete: function (xhr, status) {
+        console.log("Request complete");
+      }
+    });
   }
 
 

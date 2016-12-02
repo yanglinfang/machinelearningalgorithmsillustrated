@@ -91,7 +91,7 @@ function drawLRMatrix(elem){
                             k += parseInt(Math.log(j)) // slow down the accelaration of weights so the change is perceptable.
 		        			
                             if (j < res.length){
-								node.select('.box').data(res[k])
+								node.select('.output-box').data(res[k])
 									.attr('fill',opacity)
 
 								node.select('.box-value').data(res[k])

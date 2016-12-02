@@ -6,7 +6,7 @@ function drawLRMatrix(elem){
 
 
     var x = d3.scaleLinear()
-    	.domain([-4, 4.1])
+    	.domain([0, 4.1])
     	.range([0, 1]);
 
     var opacity = function(d,i){

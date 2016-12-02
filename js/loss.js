@@ -23,7 +23,7 @@ function drawLossChart(elem) {
             return [i, d];
         });
 
-        var w = 330,
+        var w = 293,
             h = 240,
             p = 23,
             y_off = 40;

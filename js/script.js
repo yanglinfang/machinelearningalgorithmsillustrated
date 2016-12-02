@@ -27,9 +27,11 @@ $(function () {
       switch (elem) {
         case "LR":
           scatter('ScatterLR', normalizeData(scatterLR));
+          $("#LRdata").text("Linearly separable case normalized data");
           break;
         case "NN":
           scatter('ScatterNN', normalizeData(scatterNN));
+          $("#NNdata").text("Non linearly separable case normalized data");
           break;
       }
     })
@@ -40,9 +42,11 @@ $(function () {
       switch (elem) {
         case "LR":
           scatter('ScatterLR', scatterLR);
+          $("#LRdata").text("Linearly separable case raw data");
           break;
         case "NN":
           scatter('ScatterNN', scatterNN);
+          $("#NNdata").text("Non linearly separable case raw data");
           break;
       }
     })

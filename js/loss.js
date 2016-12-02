@@ -6,10 +6,12 @@ function drawLossChart(elem) {
     var filePath;
     switch(elem){
         case "LR":
-            filePath = url + "/data/LRlosses.txt";
+            //filePath = url + "/data/LRlosses.txt";
+            filePath= url + "/data/linearly-separable-case/LRlosses.txt";
             break;
         case "NN":
-            filePath = url + "/data/NNlosses.txt";
+            //filePath = url + "/data/NNlosses.txt";
+            filePath= url + "/data/non-linearly-separable-case/NNlosses.txt";
             break;
     } 
 
@@ -61,7 +63,8 @@ function drawLossChart(elem) {
             .attr('class', 'line')
             .attr("transform", "translate(" + p + ",0)")
             .attr('d', line(parseFloat(data[0])))
-
+        
+        var wait = elem == "LR" ? 10000 : 20000;
         $(document.body).on('click', "#play" + elem, function (e) {
             var that = $(this).find('i')
             that.text('pause')
@@ -71,7 +74,7 @@ function drawLossChart(elem) {
                     that.text('play_arrow')
                 }
                 )
-                .duration(5000)
+                .duration(wait)
                 .attrTween('d', pathTween)
 
                 ;

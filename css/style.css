@@ -265,7 +265,7 @@ input:checked + label {
 }
 
 /*loss chart*/
-svg {
+.graph-container svg {
 	font: 10px sans-serif;
 	background-color: white;
 }

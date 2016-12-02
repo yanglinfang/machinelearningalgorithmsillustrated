@@ -1,58 +1,72 @@
 
 
 
-function drawDecisionBoundary(elem){
+function drawDecisionBoundary(elem) {
     var url = window.location.href.toString().split('/', 3).join('/');
     var filePath;
-   switch(elem){
-       case "LR":
-       filePath = url + "/data/linearly-separable-case/LRcontour.txt";
-       break;
-       case "NN":
-       filePath = url + "/data/non-linearly-separable-case/NNcontour.txt";
-       break;
-   } 
-
-    d3.json(filePath, function (data) {
-        data = data.map(function (d, i) {
-            return [i, d];
-        });
-
-        var c = new Conrec(),
-            xs = d3.range(0, data.length),
-            ys = d3.range(0, data[0].length),
-            zs = d3.range(-1, 2, 1),
-            width = 200,
-            height = 200,
-            x = d3.scale.linear().range([0, width]).domain([0, data.length]),
-            y = d3.scale.linear().range([height, 0]).domain([0, data[0].length]),
-            colours = d3.scale.linear().domain([-5, 3]).range(["#fff", "red"]);
-        
-        c.contour(data, 0, xs.length - 1, 0, ys.length - 1, xs, ys, zs.length, zs);
-
-        d3.select("body")
-        .select("#" + elem + "contour")
-        .select("svg")
-        .remove();
-
-        var LRcountour = d3.select("body")
-        .select("#" + elem + "contour")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height)
-        .selectAll("path")
-        .data(c.contourList())
-        .enter()
-        .append("path")
-        .style("fill", function(d){ return colours(d.level);})
-        .style("stroke","black")
-        .attr("d", d3.svg.line()
-          .x(function(d){ return x(d.x); })
-          .y(function(d){ return y(d.y); }));
+    switch (elem) {
+        case "LR":
+            filePath = url + "/data/linearly-separable-case/LRcontour.txt";
+            break;
+        case "NN":
+            filePath = url + "/data/non-linearly-separable-case/NNcontour.txt";
+            break;
+    }
 
 
+    var layout = {
+        width: 300,
+        height: 300,
+	    showlegend: false
+    };
+
+    d3.json(filePath, function (error, res) {
+        if (error) { return console.warn("error", error); }
+        else {
+            data = res[0];
 
 
-    });
+            var plotData = [{
+                z: data[0].map(function (value, index) { return value[2]; }),
+                x: data[0].map(function (value, index) { return value[0]; }),
+                y: data[0].map(function (value, index) { return value[1]; }),
+                type: 'contour'
+            }
+            ];
+
+            if (document.getElementById(elem + 'contour') != null) {
+                Plotly.newPlot(elem + 'contour', plotData, layout);
+            }
+
+            // animate the color of the boxes.
+            $(document.body).on('click', '#play' + elem, function (e) {
+                var j = 0
+                var k = 1
+                var wait = elem == "LR" ? 25 : 0; //LR is a lot faster than NN
+                var inter = setInterval(function () {
+                    j += 1;
+
+                    k += parseInt(Math.log(j)) // slow down the accelaration of weights so the change is perceptable.
+
+                    if (j < res.length) {
+                        var plotData = [{
+                            z: res[j][0].map(function (value, index) { return value[2]; }),
+                            x: res[j][0].map(function (value, index) { return value[0]; }),
+                            y: res[j][0].map(function (value, index) { return value[1]; }),
+                            type: 'contour'
+                        }
+                        ];
+
+                        Plotly.newPlot(elem + 'contour', plotData, layout);
+
+                    } else {
+                        clearInterval(inter)
+                    }
+                }, wait); 
+            })
+        }
+    })
+
+
 
 }

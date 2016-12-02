@@ -175,7 +175,7 @@ function drawNNMatrix(elem){
                             }else{
                                 clearInterval(inter)
                             }
-                    }, 50); // run for 5 secs. iterations = 10,000/100 = 100. 5,000 millisecs/100 iterations = 50 miliseconds. *** NOT GUARANTEED ***
+                    }, 150); // run for 5 secs. iterations = 10,000/100 = 100. 5,000 millisecs/100 iterations = 50 miliseconds. *** NOT GUARANTEED ***
                 })
             }
         })

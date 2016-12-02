@@ -15,25 +15,10 @@ $(function () {
 
   });
 
-  var scatterLR = [
-    { x1: 98, x2: 5.5, y: 0 },
-    { x1: 120, x2: 5.8, y: 0 },
-    { x1: 168, x2: 6.2, y: 0 },
-    { x1: 200, x2: 5.5, y: 1 },
-    { x1: 210, x2: 5, y: 1 },
-    { x1: 168, x2: 5, y: 1 }
-  ]
-  var scatterNN = [
-    { x1: 98, x2: 5.5, y: 0 },
-    { x1: 155, x2: 5.2, y: 0 },
-    { x1: 120, x2: 5.7, y: 0 },
-    { x1: 168, x2: 6.2, y: 0 },
-    { x1: 200, x2: 5.5, y: 1 },
-    { x1: 210, x2: 5, y: 1 },
-    { x1: 168, x2: 5, y: 1 },
-    { x1: 110, x2: 6.0, y: 1 },
-    { x1: 125, x2: 5.8, y: 1 }
-  ]
+  
+  
+  console.log('LRnorm',LRNorm)
+  console.log('NNnorm',NNNorm)
 
   function setupClickPlay(elem) {
     $(document.body).on('click', "#play" + elem, function (e) {
@@ -87,8 +72,8 @@ $(function () {
         setupClickPlay('LR');
         setupClickPlay('NN');
         
-        //drawDecisionBoundary('LR');
-        //drawDecisionBoundary('NN');
+        drawDecisionBoundary('LR');
+        drawDecisionBoundary('NN');
 
         setTimeout(function () {
           MathJax.Hub.Queue(["Typeset", MathJax.Hub]);

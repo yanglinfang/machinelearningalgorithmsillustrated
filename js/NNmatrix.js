@@ -1,7 +1,7 @@
 function drawNNMatrix(elem){
 	var url = window.location.href.toString().split('/', 3).join('/');
-	var width  = 425,
-    	height = 300;
+	var width  = 300,
+    	height = 170;
 
 
     var x = d3.scaleLinear()
@@ -182,7 +182,7 @@ function drawNNMatrix(elem){
                             }else{
                                 clearInterval(inter)
                             }
-                    }, 50); // run for 5 secs. iterations = 10,000/100 = 100. 5,000 millisecs/100 iterations = 50 miliseconds. *** NOT GUARANTEED ***
+                    }, 150); // run for 5 secs. iterations = 10,000/100 = 100. 5,000 millisecs/100 iterations = 50 miliseconds. *** NOT GUARANTEED ***
                 })
             }
         })

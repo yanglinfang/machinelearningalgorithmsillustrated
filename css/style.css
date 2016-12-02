@@ -138,7 +138,7 @@ hr{border-top: 1px solid #ddd;}
 .section-label{
 	font-family: MJX_Math;
 	font-size: 110%;
-	/*margin-top: 20px;*/
+	margin-bottom: 20px;
 	border-bottom: 1px solid #ccc;
 }
 .sections-summary{
@@ -148,6 +148,9 @@ hr{border-top: 1px solid #ddd;}
 }
 .mathy{
 	font-family: MJX_Math;
+}
+.graph-label{
+	font-size:14px;
 }
 
 .tick line, .tick path{
@@ -265,7 +268,7 @@ input:checked + label {
 }
 
 /*loss chart*/
-svg {
+.graph-container svg {
 	font: 10px sans-serif;
 	background-color: white;
 }
@@ -324,7 +327,9 @@ path.area {
     line-height: 1.2em;
 
 }
-
+.js-plotly-plot{
+	overflow:hidden;
+}
 
 
 

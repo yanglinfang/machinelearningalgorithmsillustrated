@@ -71,16 +71,6 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="row">
-					<div class="col-sm-6" id="ScatterLR">
-						<div class="tooltip hidden">
-							<span class="x1"></span><br>
-							<span class="x2"></span><br>
-							<span class="y"></span>
-						</div>
-						<div class="section-label">Data</div>
-						<!-- <img src="img/data-LR-chart.png"\> -->
-					</div>
-
 					<div class="col-sm-6">
 						<div class="section-label">Model - Logistic Regression</div>
 						<div class="sections-summary">
@@ -93,6 +83,17 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-sm-6">
+						<!-- <div class="tooltip hidden">
+							<span class="x1"></span><br>
+							<span class="x2"></span><br>
+							<span class="y"></span>
+						</div> -->
+						<div class="section-label">Data &amp; Decision boundary (hyperplane)</div>
+						<div id="LRcontour"></div>
+					</div>
+
+					
 				</div>
 			</div>
 
@@ -102,19 +103,13 @@
 						<div class="section-label">Training Loss</div>
 						<div id="LRLoss" class="graph-container"></div>
 
-						<div class="section-label">Gradient descent</div>
-						<div id="LRGD" class="graph-container"></div>
-
-						<img src="img/gd-placeholder.png" />
+						
 					</div>
 
 					<div class="col-sm-6">
 						<div class="section-label">Model parameters (weights)</div>
 						<div id="LRweights" class="graph-container"></div>
 
-						<div class="section-label">Decision boundary (hyperplane)</div>
-						<div id="LRcontour" class="graph-container"></div>
-						<img src="img/LinearlySeparableCase-LR_contourf.png" width="100%" height="100%" />
 					</div>
 
 				</div>
@@ -140,14 +135,6 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="row">
-					<div class="col-sm-6" class="scatter-plot" id="ScatterNN">
-						<div class="tooltip hidden">
-							<span class="x1"></span><br>
-							<span class="x2"></span><br>
-							<span class="y"></span>
-						</div>
-						<div class="section-label">Data</div>
-					</div>
 					<div class="col-sm-6">
 						<div class="section-label">Model - Neural Network</div>
 						<div class="sections-summary">
@@ -160,27 +147,29 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-sm-6" class="scatter-plot">
+						<!-- <div class="tooltip hidden">
+							<span class="x1"></span><br>
+							<span class="x2"></span><br>
+							<span class="y"></span>
+						</div> -->
+						<div class="section-label">Data &amp; Decision boundary (hyperplane)</div>
+						<div id="NNcontour"></div>
+					</div>
+					
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="row">
 					<div class="col-sm-6">
-						<div id="NNLoss">
-							<div class="section-label">Training Loss</div>
-						</div>
-						<!--<img src="img/loss-placeholder.png"/>-->
-						<div id="NNGD">
-							<div class="section-label">Gradient descent</div>
-						</div>
-						<img src="img/gd-placeholder.png" />
+						<div class="section-label">Training Loss</div>
+						<div id="NNLoss"></div>
+						
 					</div>
 					<div class="col-sm-6">
 						<div class="section-label">Model parameters (weights)</div>
 						<div id="NNweights" class="graph-container"></div>
 
-						<div class="section-label">Decision boundary (hyperplane)</div>
-						<div id="NNcontour" class="graph-container"></div>
-						<img src="img/LinearlyNonSeparableCase-NN_contourf.png" width="100%" height="100%" />
 					</div>
 				</div>
 			</div>

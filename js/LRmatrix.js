@@ -1,7 +1,7 @@
 function drawLRMatrix(elem){
 	var url = window.location.href.toString().split('/', 3).join('/');
-	var width  = 425,
-    	height = 300,
+	var width  = 200,
+    	height = 160,
     	node;
 
 

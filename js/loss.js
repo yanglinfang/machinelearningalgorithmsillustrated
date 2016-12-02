@@ -3,17 +3,22 @@
 function drawLossChart(elem) {
 
     var url = window.location.href.toString().split('/', 3).join('/');
-    // var filePath;
-    // switch(elem){
-    //     case "LR":
-    //         filePath = url + "/data/LRlosses.txt";
-    //         break;
-    //     case "NN":
-    //         filePath = url + "/data/NNlosses.txt";
-    //         break;
-    // } 
 
-    d3.json(url + "/data/"+elem+"losses.txt", function (data) {
+
+    // d3.json(url + "/data/"+elem+"losses.txt", function (data) {
+    var filePath;
+    switch(elem){
+        case "LR":
+            //filePath = url + "/data/LRlosses.txt";
+            filePath= url + "/data/LRlosses.txt";
+            break;
+        case "NN":
+            //filePath = url + "/data/NNlosses.txt";
+            filePath= url + "/data/non-linearly-separable-case/NNlosses.txt";
+            break;
+    } 
+
+    d3.json(filePath, function (data) {
         data = data.map(function (d, i) {
             return [i, d];
         });
@@ -61,6 +66,8 @@ function drawLossChart(elem) {
             .attr('class', 'line')
             .attr("transform", "translate(" + p + ",0)")
             .attr('d', line(parseFloat(data[0])))
+        
+        var wait = elem == "LR" ? 10000 : 20000;
 
         $(document.body).on('click', "#play" + elem, function (e) {
             var that = $(this).find('i')
@@ -71,7 +78,7 @@ function drawLossChart(elem) {
                     that.text('play_arrow')
                 }
                 )
-                .duration(5000)
+                .duration(wait)
                 .attrTween('d', pathTween)
 
                 ;
@@ -82,11 +89,17 @@ function drawLossChart(elem) {
             .attr("transform", "translate(" + p + ", " + 130 + ")")
             .call(d3.axisBottom().scale(x))
             .selectAll("text")
-            .attr("y", 0)
+            .attr("y", 10)
             .attr("x", 4)
             .attr("dy", ".35em")
-            .attr("transform", "rotate(90)")
+            //.attr("transform", "rotate(90)")
             .style("text-anchor", "start");
+
+        svg.append("text")
+            .attr("class", "mathy graph-label")
+            .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+            .attr("transform", "translate(" + (w / 2) + "," + (h+p)  + ")")  // centre below axis
+            .text("Iterations"); 
 
         svg.append("g")
             .attr("class", "y axis")

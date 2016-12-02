@@ -81,7 +81,8 @@ $(function () {
         drawLossChart('LR');
         drawLossChart('NN');
 
-        drawMatrix('LRweights');
+        drawLRMatrix('LRweights');
+        drawNNMatrix('NNweights');
         
         setupClickPlay('LR');
         setupClickPlay('NN');

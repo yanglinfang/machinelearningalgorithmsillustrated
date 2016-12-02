@@ -16,7 +16,7 @@ function drawLRMatrix(elem){
 	var weightValue = function(d,i){
 		return d[1].toFixed(10)
 	}
-	d3.json(url+"/data/linearly-separable-case/LRweights.txt", function(error, res) {
+	d3.json(url+"/data/LRweights.txt", function(error, res) {
 	        if (error){return console.warn("error",error);}
 	        else{
 	        	data = res[0];

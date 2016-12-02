@@ -3,17 +3,17 @@
 function drawLossChart(elem) {
 
     var url = window.location.href.toString().split('/', 3).join('/');
-    var filePath;
-    switch(elem){
-        case "LR":
-            filePath = url + "/data/LRlosses.txt";
-            break;
-        case "NN":
-            filePath = url + "/data/NNlosses.txt";
-            break;
-    } 
+    // var filePath;
+    // switch(elem){
+    //     case "LR":
+    //         filePath = url + "/data/LRlosses.txt";
+    //         break;
+    //     case "NN":
+    //         filePath = url + "/data/NNlosses.txt";
+    //         break;
+    // } 
 
-    d3.json(filePath, function (data) {
+    d3.json(url + "/data/"+elem+"losses.txt", function (data) {
         data = data.map(function (d, i) {
             return [i, d];
         });

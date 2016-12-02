@@ -130,7 +130,6 @@ function scatter(id, data) {
 		.attr("r", 6)
 
 		.on("mouseenter", function (d, i) {
-			console.log("d", d)
 			var xPosition = parseFloat(d3.select(this).attr("cx")) - 10;
 			var yPosition = parseFloat(d3.select(this).attr("cy")) - 50;
 

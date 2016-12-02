@@ -61,15 +61,15 @@ function drawNNMatrix(elem){
     //*  HIDDEN LAYER
     (function(){
  
-        d3.json(url+"/data/non-linearly-separable-case/NNweights.txt", function(error, res) {
+        d3.json(url+"/data/NNweights.txt", function(error, res) {
 	        if (error){return console.warn("error",error);}
 	        else{
-	        	w1_data = res[0];
+	        	w1_data = res;
 
 
                 // Draw weights boxes
 	    		var hidden_layer = svg.selectAll(".hidden-boxes")
-	                    .data(w1_data)
+	                    .data(w1_data[0])
 					    .enter()
 					    .append('g')
                         .attr('class','hidden-boxes')
@@ -93,23 +93,30 @@ function drawNNMatrix(elem){
 
                 // animate the color of the boxes.
 	        	$(document.body).on('click', "#playNN", function (e) {
-		        	var j = 0
+		        	var k = 0
                     // var k = 1
 		        	var inter = setInterval(function() {
-		        			j+=100;
+		        			k+=100;
 
                             // k += parseInt(Math.log(j)) // slow down the accelaration of weights so the change is perceptable.
 		        			
-                            if (j < res.length){
+                            if (k < res.length){
 								hidden_layer.selectAll('.hidden-boxes')
-                                    .data(res[j])
+                                    .data(w1_data[k])
                                     .enter()
                                     .each(function(d,i){
-
                                         d3.select(this).selectAll(".hidden-box")
-                                            .data(function(d, i) { return d; })
-                                            .attr('fill',opacity)
-                                    })
+                                            .data(function(d, i) {return d; })
+                                            //.enter()
+                                            .each(function(d,j){
+                                                console.log("dj",i,j)
+                                                d3.select(this)
+
+                                                .attr('fill',opacity)
+                                            })
+                                            
+                                            
+                                        })
                                 
 
 		        			}else{
@@ -125,7 +132,7 @@ function drawNNMatrix(elem){
     //* OUTPUT LAYER
     (function(){
 
-        d3.json(url+"/data/non-linearly-separable-case/NNweights2.txt", function(error, res) {
+        d3.json(url+"/data/NNweights2.txt", function(error, res) {
             if (error){return console.warn("error",error);}
             else{
                 w2_data = res[0];

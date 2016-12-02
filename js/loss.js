@@ -10,11 +10,11 @@ function drawLossChart(elem) {
     switch(elem){
         case "LR":
             //filePath = url + "/data/LRlosses.txt";
-            filePath= url + "/data/LRlosses.txt";
+            filePath= url + "/machinelearningalgorithmsillustrated/data/LRlosses.txt";
             break;
         case "NN":
             //filePath = url + "/data/NNlosses.txt";
-            filePath= url + "/data/non-linearly-separable-case/NNlosses.txt";
+            filePath= url + "/machinelearningalgorithmsillustrated/data/non-linearly-separable-case/NNlosses.txt";
             break;
     } 
 
@@ -23,7 +23,7 @@ function drawLossChart(elem) {
             return [i, d];
         });
 
-        var w = 290,
+        var w = 310,
             h = 240,
             p = 25,
             y_off = 40;

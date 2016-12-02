@@ -23,15 +23,15 @@ function drawLossChart(elem) {
             return [i, d];
         });
 
-        var w = 285,
+        var w = 295,
             h = 240,
             p = 25,
             y_off = 40;
 
 
         //Hack to make NN plot a bit wider so that x label is not cutoff
-        //if (elem == "NN")
-        //    w = 285;
+        if (elem == "NN")
+            w = 285;
 
         var x = d3.scaleLinear()
             .domain([0, data.length - 1])

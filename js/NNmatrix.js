@@ -105,6 +105,7 @@ function drawNNMatrix(elem){
                                     .data(res[j])
                                     .enter()
                                     .each(function(d,i){
+                                        
                                         d3.select(this).selectAll(".hidden-box")
                                             .data(function(d, i) { return d; })
                                             .attr('fill',opacity)

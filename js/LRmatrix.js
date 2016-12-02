@@ -47,7 +47,7 @@ function drawLRMatrix(elem){
                 // Draw the two input boxes        
                 for(var i = 0; i < 2; i++){
                     d3.select('.weight-graph').append('rect')
-                        .attr('class','box')
+                        .attr('class','input-box')
                         .attr('fill','#fff')
                         .attr('x',20)
                         .attr('y',function(){return i*30+80})
@@ -63,7 +63,7 @@ function drawLRMatrix(elem){
 					    
 
 				node.append('rect')
-						.attr('class','box')
+						.attr('class','output-box')
 						.attr('x',80)
 						.attr('y',function(d,i){
                             console.log("dd",d,i)

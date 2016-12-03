@@ -8,7 +8,7 @@ function drawNNMatrix(elem){
     	.domain([0, 7])
     	.range([0, 1]);
 
-    var opacity = function(d){
+    var HIDDEN_opacity = function(d){
     	var op =  Math.abs(x(d))
 		return 'rgba(29,1,119,'+op+')'
 	}
@@ -60,79 +60,75 @@ function drawNNMatrix(elem){
             .attr('y',function(){return i*30+80})
     }
 
+    // initialize data array
+    var w1_data = [];
+    d3.json(url+"/data/NNweights.txt", function(error, res) {
+            if (error){return console.warn("error",error);}
+            else{
+                w1_data = res;
+                hidden_layer_weights_update(w1_data[0])
+            }
+        });
+
+
+
+
     //*  HIDDEN LAYER [2 x 3]
-    (function(){
- 
-        d3.json(url+"/data/NNweights.txt", function(error, res) {
-	        if (error){return console.warn("error",error);}
-	        else{
-	        	w1_data = res;
+    function hidden_layer_weights_update(data){
+        // Draw weights boxes
+        var hidden_layer = svg.selectAll(".hidden-boxes")
+                .data(data, function(d) { return d; });
+
+        	hidden_layer.enter()
+                .append('g')
+                .attr('class','hidden-boxes')
+        	    .each(function(d, j) {
+
+                    var hidden_boxes = d3.select(this).selectAll(".hidden-boxes")
+                        .data(function(d, i) { return d; });
+                        
+
+                        hidden_boxes.enter()
+                            .append("rect") // ???? HOW TO DO THIS IN SETUP? Need to get rid of th append
+        					.attr('class','hidden-box')
+        					.attr('x',function(d,i){
+                                return 30*i + 80;
+                            })
+        					.attr('y',function(d,i){
+                                return 30*j + 80;
+                            })
+        					.attr('width',20)
+        	        		.attr('height',20)
+        	        		.attr('fill',HIDDEN_opacity)
+
+                        hidden_boxes.exit().remove();
+                })
+            hidden_layer.exit().remove();    
+        }
+
+                    // animate the color of the boxes.
+        $(document.body).on('click', "#playNN", function (e) {
+            var i = 0
+            var j = 1
+            var inter = setInterval(function() {
+                    j+=100;
+
+                    i += parseInt(Math.log(j)) // slow down the accelaration of weights so the change is perceptable.
+                    
+                    if (j < w1_data.length){
+                        
+                        hidden_layer_weights_update(w1_data[i])
+
+                    }else{
+                        clearInterval(inter)
+                    }
+            }, 50); // run for 5 secs. iterations = 10,000/100 = 100. 5,000 millisecs/100 iterations = 50 miliseconds. *** NOT GUARANTEED ***
+        })
 
 
-                // Draw weights boxes
-	    		var hidden_layer = svg.selectAll(".hidden-boxes")
-	                    .data(w1_data[0])
-					    .enter()
-					    .append('g')
-                        .attr('class','hidden-boxes')
-					    .each(function(d, j) {
-                            d3.select(this).selectAll(".hidden-boxes")
-                                .data(function(d, i) { return d; })
-                                .enter()
-                                .append("rect")
-            						.attr('class','hidden-box')
-            						.attr('x',function(d,i){
-                                        return 30*i + 80;
-                                    })
-            						.attr('y',function(d,i){
-                                        return 30*j + 80;
-                                    })
-            						.attr('width',20)
-            		        		.attr('height',20)
-            		        		.attr('fill',opacity)
-                                })
-                
-
-                // animate the color of the boxes.
-	        	$(document.body).on('click', "#playNN", function (e) {
-		        	var k = 0
-                    // var k = 1
-		        	var inter = setInterval(function() {
-		        			k+=100;
-
-                            // k += parseInt(Math.log(j)) // slow down the accelaration of weights so the change is perceptable.
-		        			
-                            if (k < res.length){
-								hidden_layer.selectAll('.hidden-boxes')
-                                    .data(w1_data[k])
-                                    .enter()
-                                    .each(function(d,i){
-                                        d3.select(this).selectAll(".hidden-box")
-                                            .data(function(d, i) {return d; })
-                                            //.enter()
-                                            .each(function(d,j){
-                                                // console.log("dj",i,j)
-                                                d3.select(this)
-
-                                                .attr('fill',opacity)
-                                            })
-                                            
-                                            
-                                        })
-                                
-
-		        			}else{
-		        				clearInterval(inter)
-		        			}
-			        }, 50); // run for 5 secs. iterations = 10,000/100 = 100. 5,000 millisecs/100 iterations = 50 miliseconds. *** NOT GUARANTEED ***
-		        })
-	        }
-	   })
-    })();
     //*/
 
     //* OUTPUT LAYER [1 x 3]
-    (function(){
 
         d3.json(url+"/data/NNweights2.txt", function(error, res) {
             if (error){return console.warn("error",error);}
@@ -188,7 +184,6 @@ function drawNNMatrix(elem){
                 })
             }
         })
-    })()
     //*/
 }	
 

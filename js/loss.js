@@ -23,9 +23,15 @@ function drawLossChart(elem) {
             return [i, d];
         });
 
-        var w = 250,
-            h = 120,
-            p = 30;
+        var w = 310,
+            h = 240,
+            p = 25,
+            y_off = 40;
+
+
+        //Hack to make NN plot a bit wider so that x label is not cutoff
+        if (elem == "NN")
+            w = 285;
 
         var x = d3.scaleLinear()
             .domain([0, data.length - 1])
@@ -55,8 +61,8 @@ function drawLossChart(elem) {
         var svg = d3.select('body')
             .select("#" + elem + "Loss")
             .append('svg')
-            .attr('w', w)
-            .attr('h', h);
+            .attr('width', w)
+            .attr('height', h);
 
         // add element and transition in
 
@@ -64,7 +70,7 @@ function drawLossChart(elem) {
 
         var path = svg.append('path')
             .attr('class', 'line')
-            .attr("transform", "translate(" + p + ",0)")
+            .attr("transform", "translate(" + (p+1) + "," + (-y_off) +")")
             .attr('d', line(parseFloat(data[0])))
         
         var wait = elem == "LR" ? 10000 : 20000;
@@ -86,7 +92,7 @@ function drawLossChart(elem) {
 
         svg.append("g")
             .attr("class", "x axis")
-            .attr("transform", "translate(" + p + ", " + 130 + ")")
+            .attr("transform", "translate(" + p + ", " + (h-y_off) + ")")
             .call(d3.axisBottom().scale(x))
             .selectAll("text")
             .attr("y", 10)
@@ -98,12 +104,12 @@ function drawLossChart(elem) {
         svg.append("text")
             .attr("class", "mathy graph-label")
             .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
-            .attr("transform", "translate(" + (w / 2) + "," + (h+p)  + ")")  // centre below axis
+            .attr("transform", "translate(" + (w / 2) + "," + h  + ")")  // centre below axis
             .text("Iterations"); 
 
         svg.append("g")
             .attr("class", "y axis")
-            .attr("transform", "translate(" + p + ", 10)")
+            .attr("transform", "translate(" + p + ", " + (-y_off) + ")")
             .call(d3.axisLeft().scale(y));
 
         function pathTween() {

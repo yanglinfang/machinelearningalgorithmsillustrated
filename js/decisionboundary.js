@@ -6,11 +6,11 @@ function drawDecisionBoundary(elem) {
     var filePath;
     switch (elem) {
         case "LR":
-            filePath = url + "/data/linearly-separable-case/LRcontour.txt";
+            filePath = url + "/data/linearly-separable-case/linearlyseparablecase-LRcontour.txt";
             var normData = LRNorm
             break;
         case "NN":
-            filePath = url + "/data/non-linearly-separable-case/NNcontour.txt";
+            filePath = url + "/data/non-linearly-separable-case/linearlynonseparablecase-NNcontour.txt";
             var normData = NNNorm
             break;
     }

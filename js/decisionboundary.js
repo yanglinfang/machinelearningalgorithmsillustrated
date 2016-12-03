@@ -103,13 +103,10 @@ function drawDecisionBoundary(elem) {
 
             // animate the color of the boxes.
             $(document.body).on('click', '#play' + elem, function (e) {
-                var j = 0
-                var k = 1
-                var wait = elem == "LR" ? 25 : 0; //LR is a lot faster than NN
-                var inter = setInterval(function () {
+                
+                var start = new Date()
+                function update() {
                     j += 1;
-
-                    k += parseInt(Math.log(j)) // slow down the accelaration of weights so the change is perceptable.
 
                     if (j < res.length) {
                         var plotData = {
@@ -133,11 +130,17 @@ function drawDecisionBoundary(elem) {
                       
 
                         Plotly.newPlot(elem + 'contour', [plotData,scatterDataPos,scatterDataNeg], layout, options);
-
-                    } else {
-                        clearInterval(inter)
+                        requestAnimationFrame(update);
+                       
+                    }else{
+                        var end = new Date()
+                        console.debug("GD time", end-start)
                     }
-                }, wait); 
+                }
+                update()
+
+
+
             })
         }
     })

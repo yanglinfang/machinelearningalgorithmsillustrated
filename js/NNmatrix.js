@@ -24,6 +24,8 @@ function drawNNMatrix(elem){
                         .attr("height", height)
                         .attr("class","weight-graph");
         
+    
+    // STATIC ELEMENTS //
     // Draw the matrix layer labels. Use math font. 
     // Also, this allow us to  create line breaks, which are a PIA with SVG text.
     d3.select('.weight-graph')
@@ -58,7 +60,7 @@ function drawNNMatrix(elem){
             .attr('y',function(){return i*30+80})
     }
 
-    //*  HIDDEN LAYER
+    //*  HIDDEN LAYER [2 x 3]
     (function(){
  
         d3.json(url+"/data/NNweights.txt", function(error, res) {
@@ -109,7 +111,7 @@ function drawNNMatrix(elem){
                                             .data(function(d, i) {return d; })
                                             //.enter()
                                             .each(function(d,j){
-                                                console.log("dj",i,j)
+                                                // console.log("dj",i,j)
                                                 d3.select(this)
 
                                                 .attr('fill',opacity)
@@ -129,7 +131,7 @@ function drawNNMatrix(elem){
     })();
     //*/
 
-    //* OUTPUT LAYER
+    //* OUTPUT LAYER [1 x 3]
     (function(){
 
         d3.json(url+"/data/NNweights2.txt", function(error, res) {

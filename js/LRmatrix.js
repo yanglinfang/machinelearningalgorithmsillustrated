@@ -85,6 +85,8 @@ function drawLRMatrix(elem){
 	        	$(document.body).on('click', "#playLR", function (e) {
 		        	var j = 0
                     var k = 1
+
+                    /*
 		        	var inter = setInterval(function() {
 		        			j+=100;
 
@@ -101,6 +103,35 @@ function drawLRMatrix(elem){
 		        				clearInterval(inter)
 		        			}
 			        }, 25); // run for 5 secs. iterations = 20,000/100 = 200. 5,000 millisecs/200 iterations = 25 miliseconds. *** NOT GUARANTEED ***
+		        
+		        	//*/
+
+		        	var start = new Date()
+		        	var fps = 40; // 25 milisecs
+					function animateColors() {
+						j+=100;
+
+                        k += parseInt(Math.log(j)) // slow down the accelaration of weights so the change is perceptable.
+	        			
+                        if (j < res.length){
+							node.select('.output-box').data(res[k])
+								.attr('fill',opacity)
+
+							node.select('.box-value').data(res[k])
+								.text(weightValue)	
+
+	        			
+						    setTimeout(function() {
+						        requestAnimationFrame(animateColors);
+						        // Drawing code goes here
+						    }, 1000 / fps);
+						}else{
+							var end = new Date()
+							console.debug("time", end-start)
+						}
+					}
+					animateColors()
+
 		        })
 	        }
 	})

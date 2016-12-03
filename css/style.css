@@ -330,6 +330,9 @@ path.area {
 .js-plotly-plot{
 	overflow:hidden;
 }
+.points .point{
+	stroke:#000000;
+}
 
 
 

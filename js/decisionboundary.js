@@ -58,16 +58,31 @@ function drawDecisionBoundary(elem) {
         scrollZoom: false
     }
 
+    var graphDiv = elem + 'contour';
+
     d3.json(filePath, function (error, res) {
         if (error) { return console.warn("error", error); }
         else {
-            data = res[0];
+            data = res[0][0];
+            console.log("daatlen",elem, res.length)
+           
+            var ones=0,zeros=0,x1=[],x2=[];
 
+            data.map(function(v,i){
+
+                x1.push(v[0])
+                x2.push(v[1])
+                if (v[2] == 1) ones += 1
+                if (v[2] == 0) zeros += 1
+            })
+            // console.log("ones",ones,zeros)
+            // console.log("x1",x1.toString())
+            // console.log("x2",x2.toString())
 
             var plotData = {
-                z: data[0].map(function (value, index) { return value[2]; }),
-                x: data[0].map(function (value, index) { return value[0]; }),
-                y: data[0].map(function (value, index) { return value[1]; }),
+                z: data.map(function (value, index) { return value[2]; }),
+                x: data.map(function (value, index) { return value[0]; }),
+                y: data.map(function (value, index) { return value[1]; }),
                 type: 'contour',
                 showscale: false,
                 colorscale: [[0, 'rgba(255,0,85,.0)'], 
@@ -81,6 +96,7 @@ function drawDecisionBoundary(elem) {
                 }
             };
 
+            // STATIC ITEMS
             var scatterDataPos = {
               x: normData.map(function (value,index){ if(value["y"] == 1){return value["x1"];}}),
               y: normData.map(function (value,index){ if(value["y"] == 1){return value["x2"];}}),
@@ -93,22 +109,24 @@ function drawDecisionBoundary(elem) {
               y: normData.map(function (value,index){ if(value["y"] == 0){return value["x2"];}}),
               mode: 'markers',
               type: 'scatter',
-              marker: { size: 12, color:'#cccccc'}
+              marker: { size: 12, color:'#444444',symbol:"circle-open"}
             };
 
 
             if (document.getElementById(elem + 'contour') != null) {
-                Plotly.newPlot(elem + 'contour', [plotData,scatterDataPos,scatterDataNeg], layout, options);
+                Plotly.newPlot(graphDiv, [plotData,scatterDataPos,scatterDataNeg], layout, options);
             }
 
             // animate the color of the boxes.
             $(document.body).on('click', '#play' + elem, function (e) {
-                
+                var j = 0
+                 
                 var start = new Date()
                 function update() {
                     j += 1;
+                    l = res.length;
 
-                    if (j < res.length) {
+                    if (j < l) {
                         var plotData = {
                             z: res[j][0].map(function (value, index) { return value[2]; }),
                             x: res[j][0].map(function (value, index) { return value[0]; }),
@@ -123,13 +141,12 @@ function drawDecisionBoundary(elem) {
                                         [1, 'rgba(255,0,85,1)']],
                             contours:{
                                 coloring: 'lines'
-                            },
-                            colorbar:{}
+                            }
                         };
 
                       
-
-                        Plotly.newPlot(elem + 'contour', [plotData,scatterDataPos,scatterDataNeg], layout, options);
+                        // using Plotly.restyle does not offer any performance improvemnt.
+                        Plotly.newPlot(graphDiv, [plotData,scatterDataPos,scatterDataNeg], layout, options);
                         requestAnimationFrame(update);
                        
                     }else{

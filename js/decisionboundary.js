@@ -6,11 +6,11 @@ function drawDecisionBoundary(elem) {
     var filePath;
     switch (elem) {
         case "LR":
-            filePath = url + "/data/linearly-separable-case/LRcontour.txt";
+            filePath = url + "/data/linearly-separable-case/linearlyseparablecase-LRcontour.txt";
             var normData = LRNorm
             break;
         case "NN":
-            filePath = url + "/data/non-linearly-separable-case/NNcontour.txt";
+            filePath = url + "/data/non-linearly-separable-case/linearlynonseparablecase-NNcontour.txt";
             var normData = NNNorm
             break;
     }
@@ -64,7 +64,7 @@ function drawDecisionBoundary(elem) {
         if (error) { return console.warn("error", error); }
         else {
             data = res[0][0];
-            console.log("daatlen",elem, res.length)
+            console.log("datalen",elem, res.length)
            
             var ones=0,zeros=0,x1=[],x2=[];
 
@@ -126,7 +126,9 @@ function drawDecisionBoundary(elem) {
                     j += 1;
                     l = res.length;
 
-                    if (j < l) {
+                    iterationControl = (elem === "LR" ? true : (j / 40 * 40 == j)); //reduce animation iteration for NN
+
+                    if ((j < l) && iterationControl) {
                         var plotData = {
                             z: res[j][0].map(function (value, index) { return value[2]; }),
                             x: res[j][0].map(function (value, index) { return value[0]; }),

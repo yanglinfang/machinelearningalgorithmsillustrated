@@ -10,11 +10,11 @@ function drawLossChart(elem) {
     switch(elem){
         case "LR":
             //filePath = url + "/data/LRlosses.txt";
-            filePath= url + "/data/LRlosses.txt";
+            filePath= url + "/data/linearly-separable-case/linearlyseparablecase-LRlosses.txt";
             break;
         case "NN":
             //filePath = url + "/data/NNlosses.txt";
-            filePath= url + "/data/non-linearly-separable-case/NNlosses.txt";
+            filePath= url + "/data/non-linearly-separable-case/linearlynonseparablecase-NNlosses.txt";
             break;
     } 
 

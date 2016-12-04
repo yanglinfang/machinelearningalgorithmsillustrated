@@ -97,6 +97,9 @@ main{
 .math-node{
 	width: 30%;
 }
+.learn-math-node{
+	width:100%;
+}
 /* Scatterplots tooltips */
 	.tooltip{
 		position:absolute;

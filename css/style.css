@@ -100,6 +100,14 @@ main{
 .learn-math-node{
 	width:100%;
 }
+.glossary{
+	margin:0;
+	padding:0;
+}
+.glossary li{
+	list-style: none;
+	margin-bottom: 20px;
+}
 /* Scatterplots tooltips */
 	.tooltip{
 		position:absolute;

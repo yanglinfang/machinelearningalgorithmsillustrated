@@ -67,7 +67,14 @@ main{
 	width: 70%;
 	margin:50px auto;
 }
-
+.network-icon{
+	font-size: 40px;
+    vertical-align: bottom;
+    margin-right: 10px;
+	/*width: 5%;
+    margin-right: 10px;
+    vertical-align: baseline;*/
+}
 .people-icon{
 	width: 10%;
     vertical-align: baseline;

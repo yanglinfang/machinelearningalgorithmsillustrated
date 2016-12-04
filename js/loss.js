@@ -77,11 +77,11 @@ function drawLossChart(elem) {
 
         $(document.body).on('click', "#play" + elem, function (e) {
             var that = $(this).find('i')
-            that.text('pause')
+            that.text('hourglass_empty')
             path
                 .transition().on(
                 'end', function () {
-                    that.text('play_arrow')
+                    that.text('play_circle_outline')
                 }
                 )
                 .duration(wait)

@@ -98,14 +98,14 @@ function drawDecisionBoundary(elem) {
               y: normData.map(function (value,index){ if(value["y"] == 1){return value["x2"];}}),
               mode: 'markers',
               type: 'scatter',
-              marker: { size: 12, color:'black' }
+              marker: { size: 10, color:'black' }
             };
             var scatterDataNeg = {
               x: normData.map(function (value,index){ if(value["y"] == 0){return value["x1"];}}),
               y: normData.map(function (value,index){ if(value["y"] == 0){return value["x2"];}}),
               mode: 'markers',
               type: 'scatter',
-              marker: { size: 12, color:'#444444',symbol:"circle-open"}
+              marker: { size: 10, color:'#444444',symbol:"circle-open"}
             };
 
 
@@ -149,7 +149,7 @@ function drawDecisionBoundary(elem) {
                        
                     }else{
                         var end = new Date()
-                        console.debug("GD time", end-start)
+                        console.debug("Finished Decision Boundary for "+elem)
                     }
                 }
                 update()

@@ -20,7 +20,7 @@ $(function () {
   $(document.body).on('click', "#playLR", function (e) {
        // $("#LRdata").text("Linearly separable case normalized data");
        var that = $(this).find('i')
-           that.text('pause')
+           that.text('hourglass_empty')
 
         lrMatrixModule.update();
   })
@@ -28,7 +28,7 @@ $(function () {
   $(document.body).on('click', "#playNN", function (e) {
         //$("#NNdata").text("Non linearly separable case normalized data");
         var that = $(this).find('i')
-            that.text('pause')
+            that.text('hourglass_empty')
 
         nnMatrixModule.update();
   })

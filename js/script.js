@@ -16,41 +16,22 @@ $(function () {
   });
 
   
-  
-  console.log('LRnorm',LRNorm)
-  console.log('NNnorm',NNNorm)
 
-  function setupClickPlay(elem) {
-    $(document.body).on('click', "#play" + elem, function (e) {
-      //user clicked play
-      //first step is normalize data
-      switch (elem) {
-        case "LR":
-          scatter('ScatterLR', normalizeData(scatterLR));
-          $("#LRdata").text("Linearly separable case normalized data");
-          break;
-        case "NN":
-          scatter('ScatterNN', normalizeData(scatterNN));
-          $("#NNdata").text("Non linearly separable case normalized data");
-          break;
-      }
-    })
+  $(document.body).on('click', "#playLR", function (e) {
+       // $("#LRdata").text("Linearly separable case normalized data");
+       var that = $(this).find('i')
+           that.text('pause')
 
-    $(document.body).on('click', "#back" + elem, function (e) {
-      //user clicked back
-      //setback data
-      switch (elem) {
-        case "LR":
-          scatter('ScatterLR', scatterLR);
-          $("#LRdata").text("Linearly separable case raw data");
-          break;
-        case "NN":
-          scatter('ScatterNN', scatterNN);
-          $("#NNdata").text("Non linearly separable case raw data");
-          break;
-      }
-    })
-  }
+        lrMatrixModule.update();
+  })
+
+  $(document.body).on('click', "#playNN", function (e) {
+        //$("#NNdata").text("Non linearly separable case normalized data");
+        var that = $(this).find('i')
+            that.text('pause')
+
+        nnMatrixModule.update();
+  })
 
   function callPage(pageRefInput) {
     var pageName = pageRefInput.split("#");
@@ -63,25 +44,29 @@ $(function () {
       dataType: 'text',
       success: function (response) {
         $('#content').html(response);
-        scatter('ScatterLR', scatterLR);
-        scatter('ScatterNN', scatterNN);
-        draw('LR', [2, 1]);
-        draw('NN', [2, 3, 1]);
-        drawLossChart('LR');
-        drawLossChart('NN');
 
-        drawLRMatrix('LRweights');
-        drawNNMatrix('NNweights');
-        
-        setupClickPlay('LR');
-        setupClickPlay('NN');
-        
-        drawDecisionBoundary('LR');
-        drawDecisionBoundary('NN');
+        // prevent everythign running in duplicate on all the pages
+        // it's not beautiful but it works.
+        if(pageName == "learn.html"){
 
+          draw('LR', [2, 1]);
+          draw('NN', [2, 3, 1]);
+          drawLossChart('LR');
+          drawLossChart('NN');
+
+
+          nnMatrixModule.start('NNweights')
+          lrMatrixModule.start('LRweights')
+          
+          drawDecisionBoundary('LR');
+          drawDecisionBoundary('NN');
+
+        }
+        
         setTimeout(function () {
           MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }, 1);
+        
       },
       error: function (error) {
         console.log('Error loading page', error);

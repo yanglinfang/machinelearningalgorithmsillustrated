@@ -64,7 +64,6 @@ function drawDecisionBoundary(elem) {
         if (error) { return console.warn("error", error); }
         else {
             data = res[0][0];
-            console.log("datalen",elem, res.length)
            
             var ones=0,zeros=0,x1=[],x2=[];
 
@@ -75,9 +74,6 @@ function drawDecisionBoundary(elem) {
                 if (v[2] == 1) ones += 1
                 if (v[2] == 0) zeros += 1
             })
-            // console.log("ones",ones,zeros)
-            // console.log("x1",x1.toString())
-            // console.log("x2",x2.toString())
 
             var plotData = {
                 z: data.map(function (value, index) { return value[2]; }),

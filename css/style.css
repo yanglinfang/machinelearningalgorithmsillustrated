@@ -94,6 +94,9 @@ main{
 .graph-container{
 	position: relative;
 }
+.math-node{
+	width: 30%;
+}
 /* Scatterplots tooltips */
 	.tooltip{
 		position:absolute;

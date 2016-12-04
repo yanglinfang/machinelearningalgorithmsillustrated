@@ -1,6 +1,3 @@
-
-
-
 function drawDecisionBoundary(elem) {
     var url = window.location.href.toString().split('/', 3).join('/');
     var filePath;

@@ -22,19 +22,16 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<p><span class="larger">To demonstrate the mechanics of a simple feedforward neural network</span>, we'll use a toy example
-							consisiting of a 2 dimentional feature vector <span class="mathy"> &lt;weight, height&gt; </span> to predict a binary
-							outcome of healthy or unhealthy. You may notice, that a Neural Network without any hidden layers is just Logistic
-							Regression. The point of the exercise is to train a model that produces outcomes as close to the true values as possible.
-							Or in other words, to "minimize the loss".
+							consisiting of a 2 dimentional feature vector <span class="mathy"> &lt;weight, height&gt; </span> to classify a person as healthy or unhealthy. You may notice, that a Neural Network without any hidden layers is just Logistic
+							Regression. The object is to train a <span class="larger">model</span> that produces outcomes as close to the true values as possible. Or in other words, to minimize the <span class="larger">loss</span>.
 						</p>
 					</div>
 					<div class="col-sm-6">
 						<p>
-							This is done in two main phases, namely, a <strong>feedforward</strong> phase where all the data passes forward through
+							This is done in two main phases, namely, a <em>feedforward</em> phase where all the data passes forward through
 							the network so that we can calculate the loss. In other words, on average, how off are we from the ground truth. In
-							the second phase, we <strong>backpropagate</strong> through the network using gradient descent so that we can update
-							our model parameters (weights). We repeat these two phases until the algorithm converges, or until the loss is sufficiently
-							small.
+							the second phase, we <em>backpropagate</em> through the network using gradient descent so that we can update
+							our <span class="larger">model parameters (weights)</span>. We repeat these two phases until the algorithm converges, or until the loss is sufficiently small.
 						</p>
 
 						<p>If you are not at all familiar with Neural Networks, <a href="https://github.com/stephencwelch/Neural-Networks-Demystified"
@@ -65,6 +62,11 @@
 				<span class="forward"><i class="material-icons">fast_forward</i></span> -->
 			</div>
 
+		</div>
+		<div class="row">
+			<div class="col-sm-12 mbot20 big-text">
+				<p>A logisitc regression model will classify all the points on one side of the decision boundary as belonging to one class and all those on the other side as belonging to the other class. If the decision surface is a hyperplane, or in the case of this 2 dimensional toy example, a line, then the classification problem is linear, and the classes are <a href"https://en.wikipedia.org/wiki/Decision_boundary">linearly separable</a>. <strong>Press play</strong> above to see this model learn a linear decision boundary.</p>
+			</div>
 		</div>
 		
 
@@ -127,9 +129,9 @@
 		</div>
 
 		<div class="row">
-			<div class="col-sm-12 mbot20">
-				<p>That was all great untill a couple of tall skinny guys came in caughing up hairballs, and our data was <span class="larger">no longer linearly separable</span>.
-					Hidden layers to the rescue!</p>
+			<div class="col-sm-12 mbot20 big-text">
+				<p>That was all great untill a couple of tall skinny guys came in caughing up hairballs, and our data was <span class="larger">no longer linearly separable</span>. 
+					If the network has no hidden layers, then it can only learn linear problems like the one above. If it has at least one hidden layer, then it can learn problems with convex <a href"https://en.wikipedia.org/wiki/Decision_boundary">decision boundaries</a>. With more layers, it can learn more complex problems. <strong>Press play</strong> above to see this simple neural network with one hidden layer learn a decision boundary to fit the new data.</p>
 			</div>
 		</div>
 		<div class="row">

@@ -18,7 +18,6 @@ $(function () {
 
     var pageRef = $(this).find('a').attr('href');
 
-    console.log('page',pageRef)
     $('.nav li a[href="'+pageRef+'"]').parent('li').addClass('active')
 
     callPage(pageRef)
@@ -31,10 +30,11 @@ $(function () {
 
   $(document.body).on('click', "#playLR", function (e) {
        // $("#LRdata").text("Linearly separable case normalized data");
-       var that = $(this).find('i')
+      var that = $(this).find('i')
            that.text('hourglass_empty')
 
-        lrMatrixModule.update();
+      $(document.body).stop().animate({scrollTop:480}, '1500', 'swing');
+      lrMatrixModule.update();
   })
 
   $(document.body).on('click', "#playNN", function (e) {
@@ -42,6 +42,7 @@ $(function () {
         var that = $(this).find('i')
             that.text('hourglass_empty')
 
+        $(document.body).stop().animate({scrollTop:1160}, '1500', 'swing');
         nnMatrixModule.update();
   })
 

@@ -6,12 +6,24 @@ $(function () {
   // $.post();
   // $.getScript();
   // $.getJSON();
+  $('header').hide(); // hide the header on page load so users click the button - forced to go to learn view
   callPage('#home')
 
   $(document.body).on('click', '.page', function (e) {
     e.preventDefault();
+
+    $('header').show(); // always show the header thereafter.
+
+    $('.page').removeClass('active');
+
     var pageRef = $(this).find('a').attr('href');
+
+    console.log('page',pageRef)
+    $('.nav li a[href="'+pageRef+'"]').parent('li').addClass('active')
+
     callPage(pageRef)
+    $(document.body).scrollTop( 0 );
+
 
   });
 

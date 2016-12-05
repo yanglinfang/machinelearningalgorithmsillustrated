@@ -17,10 +17,27 @@
 
 
 body,html{
-	margin:10px;
+	margin:0;
 	height:100%;
 	color: #010b35;
 }
+
+header{
+	position: fixed;
+    width: calc(100% - 40px);
+    width: 100%;
+    background: #fff;
+    z-index: 100;
+    /* margin-top: 0; */
+    padding-top: 10px;
+    box-shadow: 0 0 5px 5px #fff
+    
+}
+header > div{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+/*.nav-tabs{border-bottom: 0;}*/
 #content{padding-bottom: 120px;}
 a{color:#f05;}
 a:hover, a:focus {
@@ -52,6 +69,7 @@ h5{text-transform: uppercase;}
 }
 
 main{
+	padding:80px 10px 0;
 	max-width: 1280px;
 	margin:0 auto;
 	min-height:100%;
@@ -65,7 +83,7 @@ main{
 }
 .home{
 	width: 70%;
-	margin:50px auto;
+	margin: 0 auto;
 }
 .network-icon{
 	font-size: 40px;

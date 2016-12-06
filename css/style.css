@@ -129,6 +129,7 @@ main{
 .glossary li{
 	list-style: none;
 	margin-bottom: 20px;
+	font-size: 14px;
 }
 /* Scatterplots tooltips */
 	.tooltip{
@@ -642,5 +643,11 @@ fieldset[disabled] .btn-danger:focus,
 fieldset[disabled] .btn-danger.focus {
   background-color: #f0596f;
   border-color: #f0596f;
+}
+
+li span{
+
+	font-style: italic;
+	font-size: 14px;
 }
 

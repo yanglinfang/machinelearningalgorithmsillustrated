@@ -125,6 +125,7 @@ main{
 .glossary li{
 	list-style: none;
 	margin-bottom: 20px;
+	font-size: 20px;
 }
 /* Scatterplots tooltips */
 	.tooltip{
@@ -600,6 +601,6 @@ fieldset[disabled] .btn-danger.focus {
 li span{
 
 	font-style: italic;
-	font-size: 11px;
+	font-size: 14px;
 }
 

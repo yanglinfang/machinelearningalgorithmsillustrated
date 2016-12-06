@@ -82,6 +82,11 @@ function drawLossChart(elem) {
                 .transition().on(
                 'end', function () {
                     that.text('play_circle_outline')
+                    $("#NNSpinner").hide();
+                    $("#LRSpinner").hide();
+                    if(elem=="NN"){
+                        $("#congratulations").show();
+                    }
                 }
                 )
                 .duration(wait)

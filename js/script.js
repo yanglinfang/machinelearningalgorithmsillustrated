@@ -35,6 +35,7 @@ $(function () {
 
            // TODO: instead of hardcoding offset value, calculate offset of element to accommodate different screen sizes.
       $(document.body).stop().animate({scrollTop:480}, '1500', 'swing');
+      $("#LRSpinner").show();
       lrMatrixModule.update();
   })
 
@@ -44,6 +45,8 @@ $(function () {
             that.text('hourglass_empty')
 
         $(document.body).stop().animate({scrollTop:1160}, '1500', 'swing');
+        $("#NNSpinner").show();
+        $("#congratulations").hide();
         nnMatrixModule.update();
   })
 

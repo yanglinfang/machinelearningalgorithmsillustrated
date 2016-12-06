@@ -125,7 +125,7 @@ main{
 .glossary li{
 	list-style: none;
 	margin-bottom: 20px;
-	font-size: 20px;
+	font-size: 14px;
 }
 /* Scatterplots tooltips */
 	.tooltip{

@@ -67,7 +67,14 @@ h5{text-transform: uppercase;}
 	font-weight: 200;
 	margin-bottom: 30px;
 }
-
+.reset{
+	/*margin:0;*/
+	padding:0;
+	list-style: none;
+}
+.reset li{
+	margin-bottom: 20px;
+}
 main{
 	padding:80px 10px 0;
 	max-width: 1280px;

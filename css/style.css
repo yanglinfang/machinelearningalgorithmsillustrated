@@ -597,3 +597,9 @@ fieldset[disabled] .btn-danger.focus {
   border-color: #f0596f;
 }
 
+li span{
+
+	font-style: italic;
+	font-size: 11px;
+}
+

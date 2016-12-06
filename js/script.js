@@ -33,6 +33,7 @@ $(function () {
       var that = $(this).find('i')
            that.text('hourglass_empty')
 
+           // TODO: instead of hardcoding offset value, calculate offset of element to accommodate different screen sizes.
       $(document.body).stop().animate({scrollTop:480}, '1500', 'swing');
       lrMatrixModule.update();
   })

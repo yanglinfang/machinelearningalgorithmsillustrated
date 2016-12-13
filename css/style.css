@@ -44,6 +44,9 @@ a:hover, a:focus {
     color: #f05;
     text-decoration: underline;
 }
+h1,h2,h3,h4,h5,p{
+	color: #010b35;
+}
 p{
 	line-height: 24px;
 }

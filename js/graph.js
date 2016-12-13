@@ -3,7 +3,6 @@
 
 
 function draw(elem,layers){
-	var url = window.location.href.toString().split('/', 3).join('/');
 	var width  = 425,
     	height = 300;
     	

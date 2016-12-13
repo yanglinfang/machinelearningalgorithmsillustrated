@@ -1,7 +1,6 @@
 var nnMatrixModule = (function () {
  
     
-    var url = window.location.href.toString().split('/', 3).join('/');
     var width  = 300,
         height = 170,
         svg;
@@ -72,7 +71,7 @@ var nnMatrixModule = (function () {
         }
 
         // get data and draw weights boxes
-        d3.json(url+"/data/NNweights.txt", function(error, res) {
+        d3.json(URL+"/data/NNweights.txt", function(error, res) {
                 if (error){return console.warn("error",error);}
                 else{
                     w1_data = res;
@@ -80,7 +79,7 @@ var nnMatrixModule = (function () {
                 }
             });
 
-        d3.json(url+"/data/NNweights2.txt", function(error, res) {
+        d3.json(URL+"/data/NNweights2.txt", function(error, res) {
                 if (error){return console.warn("error",error);}
                 else{
                     w2_data = res;

@@ -2,7 +2,6 @@ var lrMatrixModule = (function () {
 
 		// PRIVTE VARIABLES
 
-		var url = window.location.href.toString().split('/', 3).join('/');
 		var width  = 200,
 	    	height = 160,
         	svg;
@@ -63,7 +62,7 @@ var lrMatrixModule = (function () {
             }
             
             // DATA
-            d3.json(url+"/data/LRweights.txt", function(error, res) {
+            d3.json(URL+"/data/LRweights.txt", function(error, res) {
 		        if (error){return console.warn("error",error);}
 		        else{
 		        	w_data = res;

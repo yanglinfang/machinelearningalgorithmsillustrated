@@ -2,19 +2,17 @@
 
 function drawLossChart(elem) {
 
-    var url = window.location.href.toString().split('/', 3).join('/');
-
-
+    
     // d3.json(url + "/data/"+elem+"losses.txt", function (data) {
     var filePath;
     switch(elem){
         case "LR":
             //filePath = url + "/data/LRlosses.txt";
-            filePath= url + "/data/linearly-separable-case/linearlyseparablecase-LRlosses.txt";
+            filePath= URL + "/data/linearly-separable-case/LinearlySeparableCase-LRlosses.txt";
             break;
         case "NN":
             //filePath = url + "/data/NNlosses.txt";
-            filePath= url + "/data/non-linearly-separable-case/linearlynonseparablecase-NNlosses.txt";
+            filePath= URL + "/data/non-linearly-separable-case/LinearlyNonSeparableCase-NNlosses.txt";
             break;
     } 
 

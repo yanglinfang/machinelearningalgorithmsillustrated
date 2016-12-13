@@ -6,6 +6,10 @@ $(function () {
   // $.post();
   // $.getScript();
   // $.getJSON();
+
+  // global URL variable
+  
+
   $('header').hide(); // hide the header on page load so users click the button - forced to go to learn view
   callPage('#home')
 

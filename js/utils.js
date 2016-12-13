@@ -1,3 +1,12 @@
+
+URL = window.location.href.toString().split('/', 3).join('/');
+console.log('url',URL)
+if(URL == "http://people.ischool.berkeley.edu"){
+
+	URL = "http://people.ischool.berkeley.edu/~kylehamilton/209/machinelearningalgorithmsillustrated"
+	console.log("urrrl",URL)
+}
+
 function assert(condition, message) {
     if (!condition) {
         message = message || "Assertion failed";

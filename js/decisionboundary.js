@@ -1,13 +1,13 @@
 function drawDecisionBoundary(elem) {
-    var url = window.location.href.toString().split('/', 3).join('/');
+    
     var filePath;
     switch (elem) {
         case "LR":
-            filePath = url + "/data/linearly-separable-case/linearlyseparablecase-LRcontour.txt";
+            filePath = URL + "/data/linearly-separable-case/LinearlySeparableCase-LRcontour.txt";
             var normData = LRNorm
             break;
         case "NN":
-            filePath = url + "/data/non-linearly-separable-case/linearlynonseparablecase-NNcontour.txt";
+            filePath = URL + "/data/non-linearly-separable-case/LinearlyNonSeparableCase-NNcontour.txt";
             var normData = NNNorm
             break;
     }
